@@ -1,0 +1,27 @@
+# Web crawling
+requests
+beautifulsoup4
+selenium
+
+# Data handling
+tqdm
+numpy
+pandas
+
+# Embedding + NLP
+sentence-transformers
+transformers
+torch
+
+# Vector Store
+chromadb
+langchain
+langchain-community
+
+# LLMs
+openai
+google-generativeai
+
+# Utils
+joblib
+python-dotenv
