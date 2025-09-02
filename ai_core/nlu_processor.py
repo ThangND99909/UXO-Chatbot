@@ -138,6 +138,9 @@ class NLUProcessor:
                 output_text = raw["answer"]
             else:
                 output_text = raw
+            # Nếu output_text là dict, chuyển thành chuỗi JSON
+            if isinstance(output_text, dict):
+                output_text = json.dumps(output_text, ensure_ascii=False)
             parsed = self.intent_chain.output_parser.parse(output_text)
             return {
                 "intent": parsed.get("intent", "unknown"),
@@ -157,6 +160,8 @@ class NLUProcessor:
                 output_text = result["answer"]
             else:
                 output_text = result
+            if isinstance(output_text, dict):
+                output_text = json.dumps(output_text, ensure_ascii=False)
             parsed = self.entity_chain.output_parser.parse(output_text)
             return {
                 "entities": parsed.get(

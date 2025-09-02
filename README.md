@@ -70,5 +70,34 @@ run: python -m tests.run_ai_core
 setup version: python3.10 -m venv venv310
 kích hoạt: .\venv310\Scripts\Activate.ps1
 
+## 📂 API Module
+
+- **`api/schemas.py`**  
+  Định nghĩa các **Pydantic models** cho request/response của API (ví dụ: `ChatRequest`, `QAResponse`, `ErrorResponse`).  
+  → Giúp chuẩn hóa dữ liệu trao đổi giữa client ↔ server, hỗ trợ validation và tự động sinh tài liệu API.
+
+- **`api/main.py`**  
+  File **entrypoint FastAPI** của hệ thống.  
+  → Khởi tạo ứng dụng, load các module AI (LLM, NLU, QA, memory) và định nghĩa các **endpoint** chính:  
+    - `/` – Health check nhanh  
+    - `/health` – Trạng thái chi tiết các module  
+    - `/ask` – Đặt câu hỏi và nhận câu trả lời từ chatbot  
+    - `/memory/{session_id}` – Xóa bộ nhớ hội thoại theo session
+    
 app/main.py
+ app/
+│   │── main.py          # FastAPI entrypoint
+│   │── schema.py        # Pydantic models
 run fastapi: uvicorn app.main:app --reload
+
+Truy cập API
+
+Health check: http://localhost:8000/
+
+API docs (Swagger UI): http://localhost:8000/docs
+
+Alternative docs (ReDoc): http://localhost:8000/redoc
+
+frontend
+before run frontend, we need to run backend first
+run frontend: cd: frontend/streamlit run app.py

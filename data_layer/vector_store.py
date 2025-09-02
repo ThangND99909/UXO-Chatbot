@@ -1,5 +1,7 @@
 from langchain.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.schema import BaseRetriever
+from typing import List, Dict, Any, Optional, Union
 import json
 import numpy as np
 import os
@@ -12,6 +14,7 @@ class VectorStoreManager:
             encode_kwargs={'normalize_embeddings': False}
         )
         self.vector_store = None
+        self.persist_directory = None
     
     def create_vector_store(self, documents, persist_directory="./chroma_db",
                             json_path="data/uxo_full_documents.json",
@@ -29,6 +32,7 @@ class VectorStoreManager:
             persist_directory=persist_directory
         )
         self.vector_store.persist()
+        self.persist_directory = persist_directory
 
         # 2. Lưu documents ra JSON
         data = [{"content": doc.page_content, "metadata": doc.metadata} for doc in documents]
@@ -48,12 +52,117 @@ class VectorStoreManager:
             persist_directory=persist_directory,
             embedding_function=self.embedding_model
         )
+        self.persist_directory = persist_directory
         return self.vector_store
     
     def search_similar_documents(self, query, k=5):
         if self.vector_store is None:
             raise ValueError("Vector store chưa được khởi tạo")
         return self.vector_store.similarity_search(query, k=k)
+    
+    def as_retriever(self, search_type: str = "similarity", k: int = 5, **kwargs) -> BaseRetriever:
+        """
+        Chuyển đổi vector store thành retriever để sử dụng với LangChain chains
+        """
+        if self.vector_store is None:
+            raise ValueError("Vector store chưa được khởi tạo. Hãy load hoặc create vector store trước.")
+        
+        return self.vector_store.as_retriever(
+            search_type=search_type,
+            search_kwargs={"k": k, **kwargs}
+        )
+    
+    def get_retriever(self, **kwargs) -> BaseRetriever:
+        """
+        Alias cho as_retriever để tương thích với code cũ
+        """
+        return self.as_retriever(**kwargs)
+    
+    def similarity_search_with_score(self, query: str, k: int = 5) -> List[tuple]:
+        """
+        Tìm kiếm tương đồng với điểm số confidence
+        """
+        if self.vector_store is None:
+            raise ValueError("Vector store chưa được khởi tạo")
+        return self.vector_store.similarity_search_with_score(query, k=k)
+    
+    def get_document_count(self) -> int:
+        """
+        Lấy tổng số documents trong vector store
+        """
+        if self.vector_store is None:
+            return 0
+        # Chroma specific way to get count
+        try:
+            collection = self.vector_store._collection
+            return collection.count() if collection else 0
+        except:
+            return len(self.vector_store.get()['documents']) if self.vector_store.get() else 0
+    
+    def get_collection_info(self) -> Dict[str, Any]:
+        """
+        Lấy thông tin về collection
+        """
+        if self.vector_store is None:
+            return {"status": "not_initialized"}
+        
+        info = {
+            "document_count": self.get_document_count(),
+            "persist_directory": self.persist_directory,
+            "embedding_model": self.embedding_model.model_name
+        }
+        
+        return info
+    
+    def add_documents(self, documents: List[Any], persist: bool = True) -> List[str]:
+        """
+        Thêm documents mới vào vector store
+        """
+        if self.vector_store is None:
+            raise ValueError("Vector store chưa được khởi tạo")
+        
+        ids = self.vector_store.add_documents(documents)
+        if persist:
+            self.vector_store.persist()
+        return ids
+    
+    def delete_documents(self, ids: List[str], persist: bool = True) -> None:
+        """
+        Xóa documents khỏi vector store
+        """
+        if self.vector_store is None:
+            raise ValueError("Vector store chưa được khởi tạo")
+        
+        self.vector_store.delete(ids)
+        if persist:
+            self.vector_store.persist()
+    
+    def clear_vector_store(self) -> None:
+        """
+        Xóa toàn bộ dữ liệu trong vector store
+        """
+        if self.vector_store is None:
+            raise ValueError("Vector store chưa được khởi tạo")
+        
+        try:
+            # Chroma specific deletion
+            collection = self.vector_store._collection
+            if collection:
+                collection.delete(where={})  # Delete all documents
+                self.vector_store.persist()
+        except Exception as e:
+            print(f"Warning: Could not clear vector store: {e}")
+    
+    def health_check(self) -> Dict[str, Any]:
+        """
+        Kiểm tra tình trạng của vector store
+        """
+        return {
+            "initialized": self.vector_store is not None,
+            "document_count": self.get_document_count(),
+            "persist_directory": self.persist_directory,
+            "status": "healthy" if self.vector_store else "not_initialized"
+        }
     
     def load_documents_from_json(self, filename):
         """Load dữ liệu từ JSON chuẩn (list object)."""
@@ -93,3 +202,10 @@ class VectorStoreManager:
             json_path=json_path,
             npz_path=npz_path
         )
+
+
+# Tạo global instance để import
+vector_store_manager = VectorStoreManager()
+
+# Alias cho tương thích với code cũ
+vector_store = vector_store_manager

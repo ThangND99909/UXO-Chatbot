@@ -25,3 +25,11 @@ google-generativeai
 # Utils
 joblib
 python-dotenv
+
+# Computer Vision
+ultralytics
+Pillow
+
+# Web App
+streamlit
+requests

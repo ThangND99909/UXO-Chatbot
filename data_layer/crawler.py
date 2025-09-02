@@ -120,7 +120,12 @@ class UXOCrawler:
             "mag_vietnam": "https://maginternational.org/vietnam",
             "unicef": "https://www.unicef.org/vietnam/",
             "undp": "https://www.undp.org/vietnam",
-            "vnmac": "https://vnmac.gov.vn/"
+            "vnmac": "https://vnmac.gov.vn/",
+            "qtmac": "https://www.qtmac.vn/",
+            "peace_trees_vietnam": "https://www.peacetreesvietnam.org/",
+            "npa_vietnam": "https://www.npaid.org/where-we-work/vietnam",
+            "npa_global": "https://www.npaid.org/",
+            "nav": "https://en.wikipedia.org/wiki/Nordic_Assistance_to_Vietnam"
         }
 
     def get_all_links(self, base_url: str, limit: int = 20) -> List[str]:
