@@ -33,3 +33,16 @@ Pillow
 # Web App
 streamlit
 requests
+
+# Database
+python-jose[cryptography]
+passlib[bcrypt]
+
+
+pydantic[email]
+
+streamlit-autorefresh
+
+#map
+folium
+streamlit-folium
