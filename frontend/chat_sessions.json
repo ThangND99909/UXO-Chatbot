@@ -205,5 +205,34 @@
       }
     ],
     "language": "vi"
+  },
+  "2a3bb323-b3ee-4e61-ae11-ea030537de60": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "MAG là gì?"
+      },
+      {
+        "role": "assistant",
+        "content": "Dựa trên thông tin được cung cấp, MAG có vẻ là tên của một tổ chức, có trụ sở tại Manchester, Anh.  Tuy nhiên, thông tin chi tiết về hoạt động của MAG thì không có trong văn bản."
+      },
+      {
+        "role": "user",
+        "content": "giới thiệu về MAG"
+      },
+      {
+        "role": "assistant",
+        "content": "MAG (Nhóm Cố vấn Bom mìn) là một tổ chức nhân đạo toàn cầu hoạt động trong lĩnh vực rà phá bom mìn, bom chùm và vật liệu chưa nổ (UXO) ở các khu vực bị ảnh hưởng bởi xung đột.  Tại Việt Nam, MAG đã hỗ trợ rà phá hàng trăm nghìn vật liệu chưa nổ, giải phóng hàng triệu mét vuông đất, và giúp hàng triệu người an toàn hơn.  Họ cũng thực hiện các chương trình giáo dục về an toàn bom mìn."
+      },
+      {
+        "role": "user",
+        "content": "Tầm nhìn của MAG là gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi không tìm thấy tầm nhìn cụ thể của MAG trong văn bản được cung cấp.  Văn bản đề cập đến kế hoạch chiến lược 2024-2028 nhưng không nêu rõ tầm nhìn."
+      }
+    ],
+    "language": "vi"
   }
 }

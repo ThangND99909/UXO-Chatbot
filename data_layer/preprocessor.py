@@ -6,6 +6,19 @@ from langchain.schema import Document
 from sentence_transformers import SentenceTransformer
 import numpy as np
 
+# ✅ Bổ sung import
+from PyPDF2 import PdfReader
+try:
+    from pdf2image import convert_from_path
+    import pytesseract
+    OCR_AVAILABLE = True
+except ImportError:
+    OCR_AVAILABLE = False
+from docx import Document as DocxDocument
+from pdf2image import convert_from_path
+import pytesseract
+
+
 class UXOPreprocessor:
     def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2"):
         self.model_name = model_name
@@ -81,3 +94,44 @@ class UXOPreprocessor:
         processed = self.process_documents(raw_docs)
         chunks = self.split_documents(processed, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
         return chunks
+
+    # ✅ Nâng cấp read_pdf: text + OCR nếu page rỗng
+    def read_pdf(self, file_path: str) -> str:
+        """Đọc PDF, ưu tiên text, fallback OCR nếu cần và có poppler"""
+        text = ""
+        try:
+            reader = PdfReader(file_path)
+            for page in reader.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text += page_text + "\n"
+        except Exception as e:
+            print(f"⚠️ Lỗi đọc PDF trực tiếp: {e}")
+
+        # Nếu không đọc được text nào, thử OCR
+        if not text.strip():
+            if not OCR_AVAILABLE:
+                print(f"⚠️ Không thể đọc text và OCR không khả dụng: {file_path}")
+                return ""
+            try:
+                # OCR bằng pdf2image + pytesseract
+                poppler_path = r"E:\Poppler\poppler-24.07.0\Library\bin"  # Cập nhật đường dẫn poppler nếu cần
+                images = convert_from_path(file_path, poppler_path=poppler_path)
+                for i, img in enumerate(images):
+                    ocr_text = pytesseract.image_to_string(img, lang='vie+eng')
+                    text += ocr_text + "\n"
+            except Exception as e:
+                print(f"⚠️ OCR thất bại cho file {file_path}: {e}")
+                return ""
+
+        return text
+
+    # ✅ Bổ sung: đọc TXT
+    def read_txt(self, file_path: str) -> str:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+
+    # ✅ Bổ sung: đọc DOCX
+    def read_docx(self, file_path: str) -> str:
+        doc = DocxDocument(file_path)
+        return "\n".join([para.text for para in doc.paragraphs if para.text.strip() != ""])

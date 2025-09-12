@@ -46,3 +46,16 @@ streamlit-autorefresh
 #map
 folium
 streamlit-folium
+
+#working with docx files
+python-docx
+
+#working with pdf files
+PyMuPDF
+
+# OCR
+pytesseract
+pdf2image
+pillow
+
+

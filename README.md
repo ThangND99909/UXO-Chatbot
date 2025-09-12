@@ -127,6 +127,11 @@ retrieval_qa.py (dùng để truy vấn RAG + LLM)
 # Crawler data
 python -m data_layer.run
 
+# 1. Import dữ liệu
+python -m scripts.import_data --dir docs --types pdf,txt,docx --chunk_size 1000 --chunk_overlap 200
+
+OCR: cần cài poppler
+
 👉 Run test: 
 ```bash
 python -m tests.run_ai_core
