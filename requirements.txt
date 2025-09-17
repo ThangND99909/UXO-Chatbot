@@ -29,6 +29,8 @@ python-dotenv
 # Computer Vision
 ultralytics
 Pillow
+aiofiles
+labelImg
 
 # Web App
 streamlit

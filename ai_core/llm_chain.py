@@ -2,6 +2,8 @@
 import logging
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
+from ai_core.prompts import intent_prompt, entity_prompt
+from ai_core.parsers import NLUOutputParser
 from typing import Dict, Union
 import google.generativeai as genai
 import os
@@ -89,41 +91,8 @@ def build_default_gemini_chains():
     manager = LLMChainManager()
 
     # Intent detection
-    intent_prompt = """
-    Phân tích câu hỏi sau và xác định ý định (intent) của người dùng.
-    Các intent có thể là:
-    - definition: hỏi về định nghĩa, khái niệm
-    - safety_advice: hỏi về hướng dẫn an toàn
-    - location_info: hỏi về thông tin địa điểm
-    - report_uxo: báo cáo vật nổ
-    - ask_hotline: hỏi số hotline
-    - general: câu hỏi chung khác
-
-    Câu hỏi: {question}
-    Ngôn ngữ: {language}
-
-    Trả về JSON với cấu trúc:
-    {{"intent": "tên_intent", "confidence": độ_tin_cậy (0-1)}}
-    """
     manager.create_chain("intent", intent_prompt, ["question", "language"], parser=NLUOutputParser())
-
     # Entity extraction
-    entity_prompt = """
-    Trích xuất thực thể (entities) từ câu hỏi sau:
-
-    Câu hỏi: {question}
-    Ngôn ngữ: {language}
-
-    Các loại thực thể cần trích xuất:
-    - location: địa điểm, tỉnh thành
-    - uxo_type: loại vật nổ (bom, mìn, lựu đạn, etc.)
-    - action: hành động
-
-    Trả về JSON với cấu trúc:
-    {{"entities": {{"location": ["địa điểm 1", "địa điểm 2"],
-                    "uxo_type": ["loại vật nổ 1", "loại vật nổ 2"],
-                    "action": ["hành động 1", "hành động 2"]}}}}
-    """
     manager.create_chain("entity", entity_prompt, ["question", "language"], parser=NLUOutputParser())
 
     return manager

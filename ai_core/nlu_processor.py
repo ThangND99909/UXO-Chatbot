@@ -7,6 +7,8 @@ from typing import Dict, Any
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import BaseOutputParser
+from ai_core.prompts import intent_prompt, entity_prompt
+from ai_core.parsers import NLUOutputParser
 
 from .llm_chain import GeminiLLM  # Wrapper LLM tuỳ chỉnh
 
@@ -15,33 +17,6 @@ from .llm_chain import GeminiLLM  # Wrapper LLM tuỳ chỉnh
 # ========================
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-
-
-# ========================
-# Output Parser
-# ========================
-class NLUOutputParser(BaseOutputParser):
-    """Parser an toàn cho output từ LLM (JSON -> Dict)"""
-
-    def parse(self, text: str) -> Dict[str, Any]:
-        try:
-            logger.debug(f"🔹 Raw LLM output: {text}")
-            # Tìm JSON trong text
-            json_match = re.search(r'\{.*\}', text, re.DOTALL)
-            if json_match:
-                parsed = json.loads(json_match.group())
-                logger.debug(f"✅ Parsed JSON: {parsed}")
-                return parsed
-            else:
-                logger.warning("⚠️ Không tìm thấy JSON trong output")
-                return {}
-        except Exception as e:
-            logger.error(f"❌ Parse lỗi: {e}")
-            return {}
-
-    def get_format_instructions(self) -> str:
-        """Hướng dẫn format JSON cho LLM (có thể dùng trong prompt)."""
-        return "Trả lời dưới dạng JSON hợp lệ."
 
 # ========================
 # Context Memory (simple)
@@ -111,46 +86,16 @@ class NLUProcessor:
         self.llm = llm or GeminiLLM()
         self.memory_manager = memory_manager
         self.memory = ContextMemory()  # ✅ thêm bộ nhớ ngữ cảnh
-        self.setup_intent_detection()
-        self.setup_entity_extraction()
-
-    # ----------------------------
-    # Intent Detection
-    # ----------------------------
-    def setup_intent_detection(self):
-        intent_template = """
-        Phân tích câu hỏi sau và xác định ý định (intent) của người dùng.
-        Các intent có thể là:
-        - definition: hỏi về định nghĩa, khái niệm
-        - safety_advice: hỏi về hướng dẫn an toàn
-        - location_info: hỏi về thông tin địa điểm (ví dụ: "Quảng Trị có gì đặc biệt?")
-        - report_uxo: báo cáo vật nổ
-        - ask_hotline: hỏi số hotline (ví dụ: "số điện thoại Quảng Trị", "hotline ở đâu?")
-        - general: câu hỏi chung khác
-
-        PHÂN BIỆT QUAN TRỌNG:
-        - "Quảng Trị" → location_info (nếu chỉ là tên địa điểm không ngữ cảnh)
-        - "số điện thoại Quảng Trị" → ask_hotline
-        - "hotline Quảng Trị" → ask_hotline
-
-        Câu hỏi: {question}
-        Ngôn ngữ: {language}
-
-        Trả lời dưới dạng JSON với cấu trúc:
-        {{
-            "intent": "tên_intent",
-            "confidence": số_thập_phân_từ_0_đến_1
-        }}
-        """
-
-        self.intent_prompt = PromptTemplate(
-            template=intent_template,
-            input_variables=["question", "language"],
-        )
-
         self.intent_chain = LLMChain(
             llm=self.llm,
-            prompt=self.intent_prompt,
+            prompt=intent_prompt,
+            output_parser=NLUOutputParser(),
+            output_key="answer"
+        )
+
+        self.entity_chain = LLMChain(
+            llm=self.llm,
+            prompt=entity_prompt,
             output_parser=NLUOutputParser(),
             output_key="answer"
         )

@@ -1,0 +1,77 @@
+# --------------------
+# Python
+# --------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+dist/
+build/
+
+# --------------------
+# Virtual environment
+# --------------------
+venv/
+.env/
+.venv/
+ENV/
+env/
+
+# --------------------
+# IDE / Editor
+# --------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --------------------
+# Data / Database
+# --------------------
+sql_app.db
+*.sqlite3
+*.db
+*.db-journal
+
+# --------------------
+# Environment / Secrets
+# --------------------
+.env
+
+# --------------------
+# Logs / Cache
+# --------------------
+*.log
+logs/
+cache/
+*.DS_Store
+
+# --------------------
+# Machine Learning / AI
+# --------------------
+# Model weights, checkpoints
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.onnx
+
+# Vector databases / embeddings
+chroma_db/
+faiss_index/
+*.faiss
+
+# YOLOv8 outputs
+runs/
+
+# Datasets (raw/processed training data)
+datasets/
+data/
+
+# --------------------
+# Other
+# --------------------
+outputs/
+results/
