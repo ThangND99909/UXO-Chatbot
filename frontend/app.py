@@ -8,6 +8,7 @@ import os
 import folium
 from streamlit_folium import st_folium
 from streamlit_autorefresh import st_autorefresh
+from PIL import ImageDraw, ImageFont
 
 # ==============================
 # Dictionary giao diện song ngữ
@@ -226,33 +227,91 @@ with st.sidebar:
             selected = st.selectbox("Chọn session", options=list(all_sessions.keys()))
             if st.button("Chuyển session"):
                 switch_session(selected)
-        if st.button("Tạo session mới"):
-            new_id = str(uuid.uuid4())
-            switch_session(new_id)
+        #if st.button("Tạo session mới"):
+        #    new_id = str(uuid.uuid4())
+        #    switch_session(new_id)
 
     # Upload ảnh UXO
     st.subheader(UI_TEXT["analyze_image"][st.session_state.language])
     uploaded_image = st.file_uploader(UI_TEXT["upload_image"][st.session_state.language], type=["jpg", "jpeg", "png"])
+
+    # ✅ Lưu trạng thái phân tích trong session state
+    if 'analysis_done' not in st.session_state:
+        st.session_state.analysis_done = False
+    if 'detection_result' not in st.session_state:
+        st.session_state.detection_result = None
+    if 'processed_image' not in st.session_state:
+        st.session_state.processed_image = None
+
     if uploaded_image:
         image = Image.open(uploaded_image)
-        st.image(image, caption="Ảnh đã tải lên", use_column_width=True)
-        if st.button(UI_TEXT["analyze_image"][st.session_state.language]):
-            files = {"file": (uploaded_image.name, uploaded_image, uploaded_image.type)}
-            try:
-                response = requests.post(f"{API_URL}/detect-uxo/", files=files)
-                if response.status_code == 200:
-                    result = response.json()
-                    st.warning(result.get("warning_message",""))
-                    if result.get("detections"):
-                        st.subheader(UI_TEXT["image_result"][st.session_state.language])
-                        for det in result["detections"]:
-                            st.write(f"- {det['class']} (độ tin cậy: {det['confidence']:.2f})")
+        st.image(image, caption="Ảnh đã tải lên", use_container_width=True)
+        
+        # ✅ Sử dụng form để tránh rerun toàn bộ
+        with st.form(key="image_analysis_form"):
+            if st.form_submit_button(UI_TEXT["analyze_image"][st.session_state.language]):
+                try:
+                    uploaded_image.seek(0)
+                    image_bytes = uploaded_image.getvalue()
+                    
+                    files = {"file": (uploaded_image.name, image_bytes, uploaded_image.type)}
+                    
+                    with st.spinner("Đang phân tích ảnh..."):
+                        response = requests.post(f"{API_URL}/admin/detect-uxo/", files=files)
+                    
+                    if response.status_code == 200:
+                        result = response.json()
+                        
+                        # ✅ Lưu kết quả vào session state (KHÔNG dùng rerun)
+                        st.session_state.detection_result = result
+                        st.session_state.analysis_done = True
+                        
+                        # ✅ Xử lý và lưu ảnh đã vẽ bounding box
+                        detected_image = image.copy()
+                        draw = ImageDraw.Draw(detected_image)
+                        
+                        if "detections" in result and result["detections"]:
+                            for det in result["detections"]:
+                                bbox = det.get('bbox', [])
+                                if len(bbox) == 4:
+                                    x1, y1, x2, y2 = bbox
+                                    draw.rectangle([x1, y1, x2, y2], outline="red", width=3)
+                                    
+                                    class_name = det.get('class', 'Unknown')
+                                    confidence = det.get('confidence', 0)
+                                    label = f"{class_name}: {confidence:.2f}"
+                                    
+                                    # Vẽ text
+                                    text_bbox = draw.textbbox((x1, y1-25), label)
+                                    draw.rectangle(text_bbox, fill="red")
+                                    draw.text((x1, y1-25), label, fill="white")
+                        
+                        st.session_state.processed_image = detected_image
+                        
                     else:
-                        st.info(UI_TEXT["no_detection"][st.session_state.language])
-                else:
-                    st.error("Lỗi phân tích ảnh.")
-            except Exception as e:
-                st.error(f"Lỗi API: {e}")
+                        st.error(f"Lỗi phân tích ảnh. Status code: {response.status_code}")
+                        
+                except Exception as e:
+                    st.error(f"Lỗi API: {e}")
+
+    # ✅ HIỂN THỊ KẾT QUẢ PHÂN TÍCH ẢNH (nếu có)
+    if st.session_state.analysis_done and st.session_state.detection_result:
+        result = st.session_state.detection_result
+        
+        if "warning_message" in result:
+            st.warning(result["warning_message"])
+        
+        if st.session_state.processed_image:
+            st.image(st.session_state.processed_image, caption="Ảnh đã nhận diện", use_container_width=True)
+        
+        if "detections" in result and result["detections"]:
+            st.write("**Chi tiết phát hiện:**")
+            for det in result["detections"]:
+                class_name = det.get('class', 'Unknown')
+                confidence = det.get('confidence', 0)
+                st.write(f"- {class_name} (độ tin cậy: {confidence:.2f})")
+        else:
+            st.info(UI_TEXT["no_detection"][st.session_state.language])
 
     # Admin login/logout
     #st.subheader("🔑 Quản lý Admin")
@@ -280,12 +339,7 @@ with st.sidebar:
                 except Exception as e:
                     st.error(f"Lỗi API: {e}")
 
-    # Hotline
-    st.markdown("---")
-    #st.subheader("📞 Hotline khẩn cấp")
-    st.subheader(UI_TEXT["hotline emergency"][st.session_state.language])
-    st.info(UI_TEXT["hotline"][st.session_state.language])
-
+    
     # Báo cáo vị trí UXO
     st.markdown("---")
     st.subheader(UI_TEXT["report_uxo"][st.session_state.language])
@@ -312,6 +366,12 @@ with st.sidebar:
             except Exception as e:
                 st.error(f"❌ Lỗi API: {e}")
 
+    # Hotline
+    st.markdown("---")
+    #st.subheader("📞 Hotline khẩn cấp")
+    st.subheader(UI_TEXT["hotline emergency"][st.session_state.language])
+    st.info(UI_TEXT["hotline"][st.session_state.language])
+
 # ==============================
 # Main Page Chat UXO
 # ==============================
@@ -323,8 +383,128 @@ for message in st.session_state.chat_history:
     with st.chat_message("user" if message["role"]=="user" else "assistant"):
         st.markdown(message["content"])
 
-# Nhập câu hỏi
+# ✅ Tạo drag and drop area tích hợp
+st.markdown("""
+<style>
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+.upload-area:hover {
+    border-color: #666;
+    background-color: #f0f0f0;
+}
+.upload-text {
+    color: #666;
+    margin-bottom: 10px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Tạo vùng drag and drop
+uploaded_chat_image = st.file_uploader(
+    "",
+    type=["jpg", "jpeg", "png"],
+    key="chat_image_uploader",
+    label_visibility="collapsed",
+    help=""
+)
+
+# Hiển thị UI drag and drop custom
+if uploaded_chat_image is None:
+    st.markdown(f"""
+    <div class="upload-area">
+        <div class="upload-text">
+            <strong>Drag and drop file here</strong><br>
+            Limit 200MB per file • JPG, JPEG, PNG
+        </div>
+        <div>
+            {st.session_state.language == "vi" and "Duyệt files" or "Browse files"}
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+else:
+    st.info(f"✅ Đã chọn file: {uploaded_chat_image.name}")
+
+# ✅ Text input riêng cho chat
 prompt = st.chat_input(UI_TEXT["chat_placeholder"][st.session_state.language])
+
+# ✅ Xử lý ảnh được upload từ drag and drop
+if uploaded_chat_image:
+    try:
+        # Hiển thị ảnh đã upload
+        chat_image = Image.open(uploaded_chat_image)
+        st.session_state.chat_history.append({"role": "user", "content": f"📸 Đã tải lên ảnh: {uploaded_chat_image.name}"})
+        with st.chat_message("user"):
+            st.image(chat_image, caption=uploaded_chat_image.name, width=200)
+        
+        # Tự động phân tích ảnh
+        with st.spinner("Đang phân tích ảnh..."):
+            uploaded_chat_image.seek(0)
+            image_bytes = uploaded_chat_image.getvalue()
+            files = {"file": (uploaded_chat_image.name, image_bytes, uploaded_chat_image.type)}
+            
+            response = requests.post(f"{API_URL}/admin/detect-uxo/", files=files)
+            
+            if response.status_code == 200:
+                result = response.json()
+                
+                # Xử lý và hiển thị kết quả
+                detected_image = chat_image.copy()
+                draw = ImageDraw.Draw(detected_image)
+                
+                detection_message = "📊 **Kết quả phân tích ảnh:**\n"
+                
+                if "detections" in result and result["detections"]:
+                    for det in result["detections"]:
+                        bbox = det.get('bbox', [])
+                        if len(bbox) == 4:
+                            x1, y1, x2, y2 = bbox
+                            draw.rectangle([x1, y1, x2, y2], outline="red", width=3)
+                            
+                            class_name = det.get('class', 'Unknown')
+                            confidence = det.get('confidence', 0)
+                            label = f"{class_name}: {confidence:.2f}"
+                            
+                            # Vẽ text
+                            text_bbox = draw.textbbox((x1, y1-25), label)
+                            draw.rectangle(text_bbox, fill="red")
+                            draw.text((x1, y1-25), label, fill="white")
+                            
+                            detection_message += f"- {class_name} (độ tin cậy: {confidence:.2f})\n"
+                    
+                    # Hiển thị ảnh đã được vẽ bounding box
+                    st.session_state.chat_history.append({"role": "assistant", "content": detection_message})
+                    with st.chat_message("assistant"):
+                        st.markdown(detection_message)
+                        st.image(detected_image, caption="Ảnh đã nhận diện", width=300)
+                
+                else:
+                    detection_message += UI_TEXT["no_detection"][st.session_state.language]
+                    st.session_state.chat_history.append({"role": "assistant", "content": detection_message})
+                    with st.chat_message("assistant"):
+                        st.markdown(detection_message)
+            
+            else:
+                error_msg = f"❌ Lỗi phân tích ảnh: {response.status_code}"
+                st.session_state.chat_history.append({"role": "assistant", "content": error_msg})
+                with st.chat_message("assistant"):
+                    st.markdown(error_msg)
+                    
+    except Exception as e:
+        error_msg = f"❌ Lỗi khi xử lý ảnh: {e}"
+        st.session_state.chat_history.append({"role": "assistant", "content": error_msg})
+        with st.chat_message("assistant"):
+            st.markdown(error_msg)
+    
+    # Lưu session
+    save_session()
+
+# ✅ Xử lý tin nhắn text
 if prompt:
     st.session_state.chat_history.append({"role":"user","content":prompt})
     save_session()

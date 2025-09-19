@@ -287,5 +287,129 @@
       }
     ],
     "language": "en"
+  },
+  "bbd2a3af-6eed-4d7c-bf86-fcd914cd5e8a": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "Quảng Trị"
+      },
+      {
+        "role": "assistant",
+        "content": "Quảng Trị là một tỉnh miền Trung Việt Nam, chịu ảnh hưởng nặng nề bởi chiến tranh, đặc biệt là sự tàn phá của bom mìn và vật liệu nổ chưa nổ (UXO).  Theo thông tin được cung cấp, Trung tâm Hành động Chống mìn Quảng Trị (QTMAC) đang hoạt động tích cực tại tỉnh này.\n\n**Thông tin liên hệ cụ thể:**\n\n* **Trung tâm Hành động Chống mìn Quảng Trị (QTMAC):**\n    * Địa chỉ: 18 Nguyễn Cơ Thạch, Phường Nam Đông Hà, Thành phố Đông Hà, Quảng Trị.\n    * Hotline: 0901 941 941\n    * Điện thoại: +84 233 35 95 111\n    * Fax: +84 233 35 95 222\n    * Email: dbu.qtmac@gmail.com\n\n**Khu vực bị ảnh hưởng:**  Thông tin cho thấy các hoạt động dọn dẹp bom mìn và UXO đang được tiến hành trên khắp tỉnh Quảng Trị, bao gồm cả thành phố Đông Hà (ví dụ: việc phát hiện và xử lý 43 vật liệu nổ nguy hiểm tại Phường 3, Đông Hà).  Tuy nhiên, không có thông tin cụ thể về các khu vực bị ảnh hưởng nặng nề nhất.  Để biết thông tin chi tiết hơn về các khu vực cụ thể có nguy cơ cao, cần liên hệ trực tiếp với QTMAC.\n\n**Các tổ chức tham gia:**  Nhiều tổ chức phi chính phủ quốc tế và trong nước đang hợp tác với QTMAC trong các hoạt động rà phá bom mìn tại Quảng Trị, bao gồm CRS, NPA/RENEW, MAG, PTVN.\n\n**Lưu ý:**  Thông tin về các khu vực bị ảnh hưởng bởi bom mìn và UXO ở Quảng Trị thường được cập nhật liên tục.  Để có thông tin chính xác và cập nhật nhất, vui lòng liên hệ trực tiếp với QTMAC hoặc các tổ chức liên quan."
+      },
+      {
+        "role": "user",
+        "content": "Quảng Bình"
+      },
+      {
+        "role": "assistant",
+        "content": "Quảng Bình là một tỉnh ven biển thuộc vùng Bắc Trung Bộ của Việt Nam.  Theo văn bản cung cấp, tỉnh này bị ô nhiễm nặng nề bởi bom mìn và vật liệu nổ chưa nổ (UXO) sót lại sau chiến tranh.  Văn bản đề cập đến chương trình dọn dẹp bom mìn ở Quảng Bình do PeaceTrees Việt Nam thực hiện, phối hợp với Mines Advisory Group (MAG) và Norwegian’s People’s Aid (NPA), được tài trợ bởi Văn phòng Loại bỏ và Giảm thiểu Vũ khí thuộc Cục Chính trị - Quân sự của Bộ Ngoại giao Hoa Kỳ.\n\nChương trình này tập trung vào việc khảo sát và dọn dẹp bom mìn, hỗ trợ quản lý thông tin và phối hợp hiệu quả các hoạt động rà phá bom mìn.  Tuy nhiên, văn bản không cung cấp số hotline cụ thể cho khu vực Quảng Bình liên quan đến bom mìn.  Để tìm số điện thoại liên hệ khẩn cấp về bom mìn tại Quảng Bình, bạn cần liên hệ với chính quyền địa phương (UBND tỉnh Quảng Bình) hoặc các tổ chức phi chính phủ hoạt động trong lĩnh vực này như PeaceTrees Việt Nam (bạn có thể tìm thông tin liên hệ trên trang web của họ).\n\nThông tin chi tiết về khu vực bị ô nhiễm nặng nề nhất trong tỉnh Quảng Bình không được nêu rõ trong văn bản.  Văn bản chỉ nói chung về sự ô nhiễm bom mìn ảnh hưởng đến kinh tế, đặc biệt là nông nghiệp (chiếm 46% kinh tế tỉnh), và đời sống người dân, nhất là các dân tộc thiểu số."
+      },
+      {
+        "role": "user",
+        "content": "hotline"
+      },
+      {
+        "role": "assistant",
+        "content": "❓ Bạn muốn hỏi số hotline ở khu vực nào? (Ví dụ: Quảng Bình, Quảng Trị, Huế, Đà Nẵng, Quảng Nam, Nghệ An)"
+      },
+      {
+        "role": "user",
+        "content": "Quảng Bình"
+      },
+      {
+        "role": "assistant",
+        "content": "Quảng Bình là một tỉnh ven biển thuộc vùng Bắc Trung Bộ của Việt Nam.  Theo văn bản cung cấp, tỉnh này bị ô nhiễm nặng nề bởi bom mìn và vật liệu nổ chưa nổ (UXO) sót lại sau chiến tranh.  Văn bản đề cập đến chương trình dọn dẹp bom mìn tại Quảng Bình do PeaceTrees Vietnam thực hiện, phối hợp với Mines Advisory Group (MAG) và Norwegian’s People’s Aid (NPA), được tài trợ bởi Văn phòng Loại bỏ và Giảm thiểu Vũ khí thuộc Cục Chính trị - Quân sự của Bộ Ngoại giao Hoa Kỳ.\n\nChương trình này tập trung vào việc khảo sát và dọn dẹp bom mìn, hỗ trợ quản lý thông tin và phối hợp hiệu quả các hoạt động rà phá bom mìn.  Tuy nhiên, văn bản không cung cấp số hotline cụ thể cho khu vực Quảng Bình liên quan đến bom mìn.  Để tìm kiếm thông tin liên hệ cụ thể, bạn cần tìm kiếm thêm thông tin từ các nguồn khác như:\n\n* **Website của PeaceTrees Vietnam:**  Website này có thể cung cấp thông tin liên hệ hoặc số điện thoại liên quan đến chương trình dọn dẹp bom mìn tại Quảng Bình.\n* **Cơ quan chức năng của tỉnh Quảng Bình:**  Bạn có thể liên hệ với các cơ quan chức năng của tỉnh Quảng Bình như Sở Nông nghiệp và Phát triển nông thôn, hoặc các cơ quan quản lý về an ninh, quốc phòng để tìm kiếm thông tin liên hệ.\n* **Trung tâm hành động chống mìn quốc gia:**  Đây là cơ quan chính phủ chịu trách nhiệm về các hoạt động rà phá bom mìn trên toàn quốc, họ có thể cung cấp thông tin liên hệ cho các tổ chức hoạt động tại Quảng Bình.\n\n\nThông tin về khu vực bị ảnh hưởng cụ thể trong tỉnh Quảng Bình không được nêu rõ trong văn bản.  Chỉ biết rằng đây là một trong những khu vực bị ô nhiễm nặng nề nhất bởi bom mìn và UXO ở Việt Nam, đặc biệt ảnh hưởng đến đời sống và kinh tế của người dân, nhất là người dân tộc thiểu số."
+      },
+      {
+        "role": "user",
+        "content": "tôi đang lo lắng khi thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi hiểu bạn đang rất lo lắng khi thấy một quả bom.  **Tuyệt đối không được chạm vào hoặc di chuyển vật thể nghi ngờ là bom mìn.**  Hành động này cực kỳ nguy hiểm và có thể gây ra thương tích nghiêm trọng hoặc tử vong.\n\nHãy làm theo các bước sau đây:\n\n1. **Rời xa khu vực ngay lập tức:**  Di chuyển ra khỏi khu vực phát hiện vật thể nghi ngờ một khoảng cách an toàn, ít nhất là 200 mét.  Càng xa càng tốt.  Đưa những người xung quanh ra khỏi khu vực nguy hiểm.\n\n2. **Thông báo cho cơ quan chức năng:** Gọi ngay cho một trong các số điện thoại khẩn cấp sau đây (**bạn cần tìm số điện thoại chính xác của cơ quan chức năng địa phương, đây chỉ là ví dụ, bạn cần tìm số chính xác của khu vực bạn đang ở**):\n\n    * **113:**  (Cảnh sát) -  Đây là số điện thoại khẩn cấp chung, nhưng bạn nên tìm số điện thoại cụ thể của đội xử lý bom mìn tại địa phương.\n    * **Số điện thoại của đội xử lý bom mìn địa phương:**  (Tìm kiếm thông tin này trên internet hoặc hỏi người dân địa phương).  Đây là số quan trọng nhất cần liên lạc.\n    * **Số điện thoại của chính quyền địa phương:** (UBND xã, huyện, tỉnh)\n\n3. **Mô tả chính xác vị trí:** Khi gọi điện, hãy mô tả chính xác vị trí bạn phát hiện vật thể nghi ngờ (ví dụ: tên đường, số nhà, địa điểm gần nhất, tọa độ GPS nếu có).  Mô tả chi tiết về vật thể nghi ngờ (hình dạng, kích thước, màu sắc, bất kỳ đặc điểm nào khác).\n\n4. **Đừng quay lại:** Sau khi báo cáo, hãy ở lại nơi an toàn và không quay lại khu vực đó cho đến khi cơ quan chức năng đã đến và xử lý xong.\n\n**Nhớ lại:**  An toàn tính mạng của bạn là trên hết.  Việc không chạm vào và báo cáo ngay lập tức là hành động quan trọng nhất bạn có thể làm trong tình huống này.  Không có bất kỳ nỗ lực nào để tự mình xử lý vật thể nghi ngờ là bom mìn."
+      }
+    ],
+    "language": "vi"
+  },
+  "1778aa3d-aa9f-4eee-9f12-c16d2fe21945": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_008.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mortar (độ tin cậy: 0.88)\n- Projectile (độ tin cậy: 0.58)\n- Projectile (độ tin cậy: 0.47)\n- Mortar (độ tin cậy: 0.39)\n- Mortar (độ tin cậy: 0.33)\n- Mortar (độ tin cậy: 0.32)\n"
+      }
+    ],
+    "language": "vi"
+  },
+  "c604e15f-a197-420a-b25e-5ac0c9f2c6c2": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_018.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Bomb (độ tin cậy: 0.52)\n- Bomb (độ tin cậy: 0.40)\n- Bomb (độ tin cậy: 0.39)\n- Projectile (độ tin cậy: 0.37)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_018.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Bomb (độ tin cậy: 0.52)\n- Bomb (độ tin cậy: 0.40)\n- Bomb (độ tin cậy: 0.39)\n- Projectile (độ tin cậy: 0.37)\n"
+      },
+      {
+        "role": "user",
+        "content": "tôi cần báo cáo vị trí quả bom tôi nhìn thấy"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi hiểu bạn đã nhìn thấy một vật thể nghi ngờ là bom hoặc vật nổ chưa nổ (UXO).  **Tuyệt đối không được chạm vào hoặc di chuyển vật thể đó.**  Việc này cực kỳ nguy hiểm và có thể gây tử vong.\n\nĐể đảm bảo an toàn cho bạn và cộng đồng, hãy thực hiện các bước sau:\n\n1. **Ghi nhớ vị trí chính xác:** Ghi chép càng chi tiết càng tốt về vị trí bạn nhìn thấy vật thể. Bao gồm:\n    * Địa điểm cụ thể (ví dụ: gần cây nào, nhà số bao nhiêu, gần trường học hay bệnh viện...).  Càng nhiều thông tin càng tốt.\n    * Tọa độ GPS nếu có thể (sử dụng điện thoại thông minh).\n    * Mô tả vật thể: hình dạng, kích thước, màu sắc (nếu có thể).\n\n2. **Rời khỏi khu vực ngay lập tức:**  Di chuyển ra xa khu vực phát hiện vật thể nghi ngờ một khoảng cách an toàn (ít nhất 200m).  Đừng quay lại nhìn.\n\n3. **Báo cáo ngay cho cơ quan chức năng:** Gọi ngay đến số điện thoại đường dây nóng của cơ quan chức năng có thẩm quyền về xử lý bom mìn tại địa phương của bạn.  **Rất tiếc, tôi không có danh sách đầy đủ số điện thoại đường dây nóng của tất cả các địa phương. Bạn cần tìm kiếm thông tin này trên Google bằng cách tìm kiếm \"số điện thoại đường dây nóng xử lý bom mìn [tên tỉnh/thành phố của bạn]\".**  Hoặc bạn có thể liên hệ với công an địa phương.\n\n4. **Cung cấp thông tin:** Khi liên lạc với cơ quan chức năng, hãy cung cấp đầy đủ thông tin bạn đã ghi chép được ở bước 1.  Hãy bình tĩnh và trả lời rõ ràng các câu hỏi của họ.\n\n**Nhớ lại: An toàn là trên hết.  Không được chạm vào vật thể nghi ngờ.**  Việc báo cáo kịp thời sẽ giúp đảm bảo an toàn cho bạn và những người xung quanh."
+      }
+    ],
+    "language": "vi"
+  },
+  "eb812545-8473-4751-8d20-07d67ad04062": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_021.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Projectile (độ tin cậy: 0.97)\n- Projectile (độ tin cậy: 0.97)\n- Projectile (độ tin cậy: 0.97)\n- Projectile (độ tin cậy: 0.95)\n- Projectile (độ tin cậy: 0.95)\n- Projectile (độ tin cậy: 0.95)\n- Projectile (độ tin cậy: 0.94)\n- Projectile (độ tin cậy: 0.93)\n- Projectile (độ tin cậy: 0.93)\n- Projectile (độ tin cậy: 0.93)\n- Projectile (độ tin cậy: 0.93)\n- Projectile (độ tin cậy: 0.89)\n- Projectile (độ tin cậy: 0.88)\n- Projectile (độ tin cậy: 0.86)\n- Projectile (độ tin cậy: 0.86)\n- Projectile (độ tin cậy: 0.85)\n- Bomb (độ tin cậy: 0.84)\n- Projectile (độ tin cậy: 0.80)\n- Projectile (độ tin cậy: 0.77)\n- Bomb (độ tin cậy: 0.74)\n- Projectile (độ tin cậy: 0.73)\n- Projectile (độ tin cậy: 0.72)\n- Projectile (độ tin cậy: 0.68)\n- Projectile (độ tin cậy: 0.64)\n- Projectile (độ tin cậy: 0.46)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: apple.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Bomb (độ tin cậy: 0.71)\n- Bomb (độ tin cậy: 0.64)\n- Bomb (độ tin cậy: 0.38)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: bus.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\nKhông phát hiện vật thể nghi ngờ nào."
+      }
+    ],
+    "language": "vi"
   }
 }

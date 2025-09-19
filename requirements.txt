@@ -31,6 +31,7 @@ ultralytics
 Pillow
 aiofiles
 labelImg
+python-multipart
 
 # Web App
 streamlit

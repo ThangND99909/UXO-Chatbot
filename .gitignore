@@ -48,23 +48,10 @@ logs/
 cache/
 *.DS_Store
 
-# --------------------
-# Machine Learning / AI
-# --------------------
-# Model weights, checkpoints
-*.pt
-*.pth
-*.ckpt
-*.bin
-*.onnx
-
 # Vector databases / embeddings
 chroma_db/
 faiss_index/
 *.faiss
-
-# YOLOv8 outputs
-runs/
 
 # Datasets (raw/processed training data)
 datasets/

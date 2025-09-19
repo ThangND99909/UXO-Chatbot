@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request, UploadFile, File
 from sqlalchemy.orm import Session
 from typing import List
 from datetime import datetime
@@ -8,7 +8,13 @@ from database import models, crud, connection
 from utils.auth import create_access_token, get_current_admin
 from app.schemas import AdminLoginRequest, AdminLoginResponse, UXOReportCreate, UXOReportResponse
 
+# 👇 import YOLO detector
+from computer_vision.yolov8_detector import UXODetector
+
 router = APIRouter(prefix="/admin", tags=["Admin"])
+
+# Khởi tạo detector 1 lần (load model khi start server, không load lại mỗi request)
+detector = UXODetector("computer_vision/weights/best.pt")
 
 # ================================
 # Login Admin
@@ -24,6 +30,30 @@ def login_admin(req: AdminLoginRequest, db: Session = Depends(connection.get_db)
 
     token = create_access_token(data={"sub": str(admin.id)})
     return AdminLoginResponse(access_token=token)
+
+# ================================
+# YOLOv8 UXO Detection API
+# ================================
+@router.post("/detect-uxo/")
+async def detect_uxo_api(file: UploadFile = File(...)):
+    """
+    Nhận ảnh từ frontend, chạy YOLOv8 detect, trả về danh sách vật thể
+    """
+    try:
+        image_bytes = await file.read()
+        detections = detector.detect_from_bytes(image_bytes, confidence_threshold=0.3)
+        if detections:
+            return {
+                "detections": detections,
+                "warning_message": "⚠️ Cảnh báo: Có vật thể nghi ngờ UXO!"
+            }
+        else:
+            return {
+                "detections": [],
+                "warning_message": "✅ Không phát hiện vật thể nguy hiểm."
+            }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi xử lý ảnh: {e}")
 
 # ================================
 # View chatlogs (Admin only)
