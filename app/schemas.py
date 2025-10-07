@@ -67,3 +67,33 @@ class UXOReportResponse(UXOReportCreate):
 
     class Config:
         orm_mode = True
+
+# ================================
+# Schemas cho update/delete
+# ================================
+class ChatUpdateRequest(BaseModel):
+    new_content: str
+
+class ChatDeleteResponse(BaseModel):
+    message: str
+    chat_id: int
+
+# ================================
+# Schemas cho image detection
+# ================================
+# Schema cho việc tạo detection (upload ảnh)
+class UXODetectionCreate(BaseModel):
+    filename: str
+    session_id: Optional[str] = None
+    
+
+
+class UXODetectionResponse(BaseModel):
+    id: int
+    filename: str
+    session_id: Optional[str] = None
+    detected_objects: Optional[List[Dict[str, Any]]] = []
+    created_at: datetime
+
+    class Config:
+        from_attributes = True

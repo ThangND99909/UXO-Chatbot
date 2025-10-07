@@ -175,3 +175,31 @@ def create_uxo_report(db: Session, latitude: float, longitude: float, descriptio
     db.commit()
     db.refresh(report)
     return report
+
+# =======================
+# UXODetection CRUD
+# =======================
+def create_uxo_detection(
+    db: Session, 
+    report_id: int, 
+    image_url: str,
+    detected_objects: List[Dict[str, Any]]
+) -> models.UXODetection:
+    detection = models.UXODetection(
+        report_id=report_id,
+        image_url=image_url,
+        detected_objects=detected_objects
+    )
+    db.add(detection)
+    db.commit()
+    db.refresh(detection)
+    return detection
+
+
+def get_uxo_detections(db: Session, report_id: int) -> List[models.UXODetection]:
+    return (
+        db.query(models.UXODetection)
+        .filter(models.UXODetection.report_id == report_id)
+        .all()
+    )
+

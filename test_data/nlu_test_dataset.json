@@ -1,0 +1,74 @@
+{
+  "ask_hotline": [
+    {"text": "số điện thoại đường dây nóng là gì?", "language": "vi"},
+    {"text": "cho tôi xin số hotline", "language": "vi"},
+    {"text": "what is the emergency hotline number?", "language": "en"},
+    {"text": "tôi cần liên hệ đường dây nóng", "language": "vi"},
+    {"text": "số điện thoại khẩn cấp", "language": "vi"},
+    {"text": "hotline ở quảng trị", "language": "vi"},
+    {"text": "điện thoại liên hệ emergency", "language": "vi"},
+    {"text": "số gọi khi phát hiện bom", "language": "vi"},
+    {"text": "tôi muốn gọi báo cáo", "language": "vi"},
+    {"text": "contact number for uxo", "language": "en"}
+  ],
+  "report_bomb": [
+    {"text": "tôi phát hiện thấy bom mìn", "language": "vi"},
+    {"text": "có vật nghi ngờ là UXO ở đây", "language": "vi"},
+    {"text": "I found a suspicious object", "language": "en"},
+    {"text": "báo cáo phát hiện vật nổ", "language": "vi"},
+    {"text": "tôi thấy quả bom trong vườn", "language": "vi"},
+    {"text": "có lựu đạn ở gần nhà tôi", "language": "vi"},
+    {"text": "phát hiện mìn ở quảng bình", "language": "vi"},
+    {"text": "tôi vừa nhìn thấy vật thể nổ", "language": "vi"},
+    {"text": "report uxo in my area", "language": "en"},
+    {"text": "có bom ở khu vực này", "language": "vi"}
+  ],
+  "safety_advice": [
+    {"text": "tôi nên làm gì khi thấy bom", "language": "vi"},
+    {"text": "cách xử lý an toàn", "language": "vi"},
+    {"text": "what should I do if I find UXO?", "language": "en"},
+    {"text": "hướng dẫn an toàn", "language": "vi"},
+    {"text": "khi phát hiện mìn phải làm sao", "language": "vi"},
+    {"text": "các bước xử lý khi gặp vật nổ", "language": "vi"},
+    {"text": "safety procedures for uxo", "language": "en"},
+    {"text": "làm gì khi thấy lựu đạn", "language": "vi"},
+    {"text": "hướng dẫn an toàn bom mìn", "language": "vi"},
+    {"text": "cách thoát hiểm khi gặp bom", "language": "vi"}
+  ],
+  "definition": [
+    {"text": "UXO là gì?", "language": "vi"},
+    {"text": "định nghĩa bom chùm", "language": "vi"},
+    {"text": "what does UXO mean?", "language": "en"},
+    {"text": "giải thích về vật liệu nổ", "language": "vi"},
+    {"text": "bom bi là gì", "language": "vi"},
+    {"text": "định nghĩa mìn", "language": "vi"},
+    {"text": "cluster bomb definition", "language": "en"},
+    {"text": "giải thích thuật ngữ uxo", "language": "vi"},
+    {"text": "vật nổ chưa nổ là gì", "language": "vi"},
+    {"text": "explain what is uxo", "language": "en"}
+  ],
+  "location_info": [
+    {"text": "khu vực nào ô nhiễm bom mìn?", "language": "vi"},
+    {"text": "tỉnh nào có nhiều UXO?", "language": "vi"},
+    {"text": "which areas are contaminated?", "language": "en"},
+    {"text": "thông tin vị trí bom mìn", "language": "vi"},
+    {"text": "bom mìn ở đâu nhiều nhất", "language": "vi"},
+    {"text": "khu vực ô nhiễm ở việt nam", "language": "vi"},
+    {"text": "contaminated areas in vietnam", "language": "en"},
+    {"text": "tỉnh thành có bom mìn", "language": "vi"},
+    {"text": "map of uxo locations", "language": "en"},
+    {"text": "vùng nào còn sót bom mìn", "language": "vi"}
+  ],
+  "fallback": [
+    {"text": "xin chào", "language": "vi"},
+    {"text": "cảm ơn", "language": "vi"},
+    {"text": "hello", "language": "en"},
+    {"text": "tôi không hiểu", "language": "vi"},
+    {"text": "ok", "language": "vi"},
+    {"text": "cám ơn bạn", "language": "vi"},
+    {"text": "hi", "language": "en"},
+    {"text": "tạm biệt", "language": "vi"},
+    {"text": "goodbye", "language": "en"},
+    {"text": "thanks", "language": "en"}
+  ]
+}

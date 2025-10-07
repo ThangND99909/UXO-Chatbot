@@ -1,12 +1,14 @@
-from fastapi import APIRouter, Depends, HTTPException, Request, UploadFile, File
+from fastapi import APIRouter, Depends, HTTPException, Request, UploadFile, File, Form
+from typing import Optional
 from sqlalchemy.orm import Session
 from typing import List
 from datetime import datetime
+import json
 
 
 from database import models, crud, connection
 from utils.auth import create_access_token, get_current_admin
-from app.schemas import AdminLoginRequest, AdminLoginResponse, UXOReportCreate, UXOReportResponse
+from app.schemas import AdminLoginRequest, AdminLoginResponse, UXOReportCreate, UXOReportResponse, UXODetectionResponse, UXODetectionCreate
 
 # 👇 import YOLO detector
 from computer_vision.yolov8_detector import UXODetector
@@ -35,24 +37,62 @@ def login_admin(req: AdminLoginRequest, db: Session = Depends(connection.get_db)
 # YOLOv8 UXO Detection API
 # ================================
 @router.post("/detect-uxo/")
-async def detect_uxo_api(file: UploadFile = File(...)):
+async def detect_uxo_api(
+    file: UploadFile = File(...),
+    session_id: str = Form("default_session"),
+    confidence_threshold: float = Form(0.3),
+    db: Session = Depends(connection.get_db)
+):
     """
-    Nhận ảnh từ frontend, chạy YOLOv8 detect, trả về danh sách vật thể
+    Nhận ảnh từ frontend, chạy YOLOv8 detect, TRẢ VỀ VÀ LƯU KẾT QUẢ VÀO DATABASE
     """
     try:
         image_bytes = await file.read()
-        detections = detector.detect_from_bytes(image_bytes, confidence_threshold=0.3)
+        
+        # Chạy detection
+        detections = detector.detect_from_bytes(image_bytes, confidence_threshold=confidence_threshold)
+        
+        # ✅ LƯU KẾT QUẢ VÀO DATABASE
+        detection_record = models.UXODetection(
+            filename=file.filename,
+            session_id=session_id,
+            detected_objects=detections,  # Lưu toàn bộ kết quả detection
+            image_data=image_bytes,  # Lưu ảnh gốc
+            created_at=datetime.utcnow()
+        )
+        
+        db.add(detection_record)
+        db.commit()
+        db.refresh(detection_record)
+        
+        # Tạo message cảnh báo dựa trên kết quả
         if detections:
-            return {
-                "detections": detections,
-                "warning_message": "⚠️ Cảnh báo: Có vật thể nghi ngờ UXO!"
-            }
+            warning_message = "⚠️ Cảnh báo: Có vật thể nghi ngờ UXO!"
+            
+            # ✅ THÊM: Lưu log detection nếu có vật thể nguy hiểm
+            if any(detection['confidence'] > 0.5 for detection in detections):
+                detection_log = models.ImageDetectionLog(
+                    detection_id=detection_record.id,
+                    session_id=session_id,
+                    warning_message=warning_message,
+                    confidence=max(detection['confidence'] for detection in detections),
+                    created_at=datetime.utcnow()
+                )
+                db.add(detection_log)
+                db.commit()
         else:
-            return {
-                "detections": [],
-                "warning_message": "✅ Không phát hiện vật thể nguy hiểm."
-            }
+            warning_message = "✅ Không phát hiện vật thể nguy hiểm."
+        
+        return {
+            "detection_id": detection_record.id,  # Trả về ID của detection record
+            "detections": detections,
+            "warning_message": warning_message,
+            "saved_to_database": True,
+            "timestamp": datetime.now().isoformat()
+        }
+        
     except Exception as e:
+        db.rollback()
         raise HTTPException(status_code=500, detail=f"Lỗi xử lý ảnh: {e}")
 
 # ================================
@@ -133,3 +173,43 @@ def get_all_reports(
     current_admin=Depends(get_current_admin)  # chỉ admin mới được xem
 ):
     return db.query(models.UXOReport).all()
+
+# ========================
+# ADMIN: Image detection logs
+# ========================
+
+
+@router.get("/all-detections", response_model=List[UXODetectionResponse])
+def read_all_detections_admin(
+    db: Session = Depends(connection.get_db),
+    current_admin=Depends(get_current_admin)  # Yêu cầu admin
+):
+    """Lấy tất cả detections - chỉ admin"""
+    return db.query(models.UXODetection).all()
+
+@router.get("/detections/{report_id}")
+def get_detection_image(
+    report_id: int,
+    db: Session = Depends(connection.get_db),
+    current_admin=Depends(get_current_admin)
+):
+    detection = db.query(models.UXODetection).filter(models.UXODetection.id == report_id).first()
+    if not detection or not detection.image_data:
+        raise HTTPException(status_code=404, detail="Image not found")
+    
+    from fastapi.responses import Response
+    # Xác định media type từ filename
+    media_type = "image/jpeg"
+    if detection.filename and detection.filename.lower().endswith('.png'):
+        media_type = "image/png"  
+    return Response(content=detection.image_data, media_type=media_type)
+
+@router.get("/detections/", response_model=List[UXODetectionResponse])
+def read_user_detections(
+    session_id: str,
+    db: Session = Depends(connection.get_db)
+):
+    """Lấy detections của user cụ thể - không yêu cầu auth"""
+    return db.query(models.UXODetection).filter(
+        models.UXODetection.session_id == session_id
+    ).all()

@@ -22,7 +22,7 @@ class GeminiLLM(Runnable):
     """
     Wrapper Gemini LLM tương thích LangChain 2.x
     """
-    def __init__(self, model: str = "gemini-1.5-flash", temperature: float = 0.2):
+    def __init__(self, model: str = "gemini-2.5-flash", temperature: float = 0.2):
         self.model = model
         self.temperature = temperature
         if "GOOGLE_API_KEY" in os.environ:

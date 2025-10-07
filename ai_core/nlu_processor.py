@@ -74,6 +74,16 @@ LOCATION_TOKENS = [
     "thanh hóa","thanh hoa","th",
     # có thể bổ sung thêm...
 ]
+
+# 🔹 Từ khoá UXO
+UXO_KEYWORDS = [
+    "bom", "mìn", "lựu đạn", "uxo", "vật nổ"
+]
+
+# 🔹 Cụm từ báo cáo (để phân biệt với hỏi thông tin)
+REPORT_TRIGGERS = [
+    "thấy", "nhìn thấy", "gặp", "phát hiện", "có một", "xuất hiện", "trước mặt"
+]
 # ========================
 # NLU Processor
 # ========================
@@ -186,6 +196,19 @@ class NLUProcessor:
             words = t_ascii.split()
             is_short = len(words) <= 4
 
+            # -------------------------------
+            # 🔹 Phát hiện user báo nhìn thấy UXO (report_bomb)
+            # -------------------------------
+            has_uxo_kw = _contains_any(t_lc, UXO_KEYWORDS) or _contains_any(t_ascii, UXO_KEYWORDS)
+            has_report_kw = _contains_any(t_lc, REPORT_TRIGGERS) or _contains_any(t_ascii, REPORT_TRIGGERS)
+
+            awaiting_uxo_location = False
+            if has_uxo_kw and has_report_kw:
+                logger.debug("⚡ User báo cáo phát hiện UXO → ép intent = report_bomb")
+                intent = "report_bomb"
+                enriched_text = question
+                awaiting_uxo_location = True
+
             has_question_word = _contains_any(t_lc, QUESTION_TRIGGERS) or _contains_any(t_ascii, QUESTION_TRIGGERS)
             has_hotline_kw = _contains_any(t_lc, HOTLINE_KEYWORDS) or _contains_any(t_ascii, HOTLINE_KEYWORDS)
             has_location = any(tok in t_lc or tok in t_ascii for tok in LOCATION_TOKENS)
@@ -220,6 +243,7 @@ class NLUProcessor:
                 "last_intent": last_intent,
                 "last_question": last_question,
                 "awaiting_hotline_location": awaiting_hotline_location,
+                "awaiting_uxo_location": awaiting_uxo_location,
                 "enriched_text": enriched_text
             }
 
@@ -265,6 +289,7 @@ class NLUProcessor:
             "last_intent": intent_result.get("last_intent", ""),
             "last_question": intent_result.get("last_question", ""),
             "awaiting_hotline_location": intent_result.get("awaiting_hotline_location", False),
+            "awaiting_uxo_location": intent_result.get("awaiting_uxo_location", False),
             "enriched_text": intent_result.get("enriched_text")
         }
         logger.debug(f"✅ Final NLU output: {merged}")

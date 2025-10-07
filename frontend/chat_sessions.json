@@ -411,5 +411,1247 @@
       }
     ],
     "language": "vi"
+  },
+  "69c00cc6-3fab-4ef0-8b5d-5a415e73cc9e": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom ở trên đồng"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào nó!  Hãy lập tức rời xa khu vực đó và báo ngay cho chính quyền địa phương (công an, chính quyền xã/phường) hoặc Trung tâm Hành động Bom mìn Quốc gia Việt Nam qua số điện thoại +84 (0) 2466643001."
+      }
+    ],
+    "language": "vi"
+  },
+  "34983232-21d7-47cf-9caf-365a333deb09": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom ở trong rừng"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào quả bom!  Hãy rời xa khu vực đó ngay lập tức và báo ngay cho chính quyền địa phương hoặc cơ quan chức năng có thẩm quyền về bom mìn (ví dụ: lực lượng công binh, cảnh sát).  Tuyệt đối không được cố gắng di chuyển hoặc làm bất cứ điều gì với quả bom."
+      }
+    ],
+    "language": "vi"
+  },
+  "b288a36a-8af3-44ca-b4c8-3e0c85317e6f": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy báo ngay cho chính quyền địa phương hoặc cơ quan chức năng gần nhất (cảnh sát, quân đội) về vị trí quả bom.  Không được di chuyển hoặc làm bất cứ điều gì với quả bom."
+      }
+    ],
+    "language": "vi"
+  },
+  "9615331c-7bc4-44e8-b4d1-63c30e46af76": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom"
+      }
+    ],
+    "language": "vi"
+  },
+  "5b83ee56-1708-4da3-a677-6396ea750151": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy quả bom ở đường"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào quả bom!  Hãy lập tức rời xa khu vực đó và báo ngay cho chính quyền địa phương (công an, chính quyền xã/phường) hoặc Trung tâm Hành động bom mìn quốc gia Việt Nam (số điện thoại và email có trong thông tin bạn cung cấp).  An toàn tính mạng là trên hết."
+      }
+    ],
+    "language": "vi"
+  },
+  "2b315980-d302-43f5-bd2a-749c61618fb4": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy báo ngay cho chính quyền địa phương hoặc cơ quan chức năng gần nhất (cảnh sát, quân đội) về vị trí quả bom.  Không được di chuyển hoặc làm bất cứ điều gì với quả bom."
+      }
+    ],
+    "language": "vi"
+  },
+  "51ee3fb5-36d7-42c8-81d3-3153f42ce663": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi thấy quả bom ở đâu?  Bạn cần cung cấp thêm thông tin về vị trí quả bom."
+      },
+      {
+        "role": "user",
+        "content": "có thể gửi bản đồ cho tôi không"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi không thể cung cấp bản đồ trực tiếp.  Tôi là một mô hình ngôn ngữ lớn, không có khả năng truy cập và hiển thị hình ảnh hoặc tập tin.  Thông tin về ô nhiễm bom mìn, vật nổ chưa nổ (UXO) ở Việt Nam rất rộng lớn và phức tạp, không thể tổng hợp thành một bản đồ đơn giản.  Ô nhiễm này phân bố không đồng đều trên nhiều tỉnh thành, đặc biệt tập trung ở các khu vực từng là chiến trường.\n\nTuy nhiên, tôi có thể cung cấp cho bạn một số thông tin hữu ích:\n\n* **Trung tâm Hành động bom mìn quốc gia Việt Nam (VNMAC):** Đây là cơ quan chính phủ chịu trách nhiệm về công tác rà phá bom mìn ở Việt Nam.  Bạn có thể liên hệ với họ để được hỗ trợ thông tin chi tiết hơn, bao gồm cả các khu vực bị ảnh hưởng nặng nề.  Thông tin liên hệ đã được cung cấp trong văn bản bạn đưa ra:  huyện Thạch Thất, thành phố Hà Nội | Tel: +84 (0) 2466643001 | Fax: +84 (0) 2466643002 | Email: office504.uxo@gmail.com\n\n* **Tìm kiếm thông tin trực tuyến:** Bạn có thể tìm kiếm thông tin về ô nhiễm bom mìn tại các tỉnh/thành phố cụ thể trên các trang web của chính phủ, các tổ chức phi chính phủ hoạt động trong lĩnh vực này (ví dụ:  tìm kiếm bằng từ khóa \"rà phá bom mìn Việt Nam\" + tên tỉnh/thành phố).  Tuy nhiên, cần lưu ý rằng thông tin công khai về vị trí cụ thể của bom mìn thường bị hạn chế vì lý do an ninh.\n\n* **Không có hotline cụ thể cho từng khu vực:**  Việc rà phá bom mìn được thực hiện bởi nhiều đơn vị khác nhau, không có một số hotline chung cho tất cả các khu vực.  VNMAC là điểm liên hệ chính để tìm hiểu thông tin và hỗ trợ.\n\n\n**Lưu ý quan trọng:**  Nếu bạn phát hiện vật thể nghi là bom mìn, vật nổ chưa nổ, **tuyệt đối không được tự ý tiếp xúc hoặc di chuyển**.  Hãy báo ngay cho chính quyền địa phương hoặc cơ quan chức năng gần nhất.  An toàn tính mạng là điều quan trọng nhất."
+      }
+    ],
+    "language": "vi"
+  },
+  "6e515f43-f890-4cf3-9a2a-469d35747dbc": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi thấy quả bom ở đâu?  Bạn cần cung cấp thêm thông tin về vị trí quả bom.  Tôi cần biết địa điểm cụ thể để có thể hỗ trợ bạn."
+      }
+    ],
+    "language": "vi"
+  },
+  "a2bb46a4-384f-4350-a606-19ec7ea442de": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "Tôi thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy báo ngay cho chính quyền địa phương hoặc cơ quan chức năng có thẩm quyền về bom mìn (ví dụ: Trung tâm hành động bom mìn quốc gia Việt Nam)  để được hỗ trợ.  An toàn tính mạng là trên hết."
+      }
+    ],
+    "language": "vi"
+  },
+  "b1a60643-b34f-4dee-8bd9-3d5ce00ec64d": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi thấy quả bom ở đâu?  Bạn cần cung cấp thêm thông tin về vị trí quả bom.  Liên hệ ngay với Trung tâm Hành động bom mìn quốc gia Việt Nam qua số điện thoại +84 (0) 2466643001 hoặc email office504.uxo@gmail.com.  KHÔNG được tự ý tiếp cận hoặc di chuyển quả bom."
+      }
+    ],
+    "language": "vi"
+  },
+  "5203e6df-7378-4183-bafc-e96cde481fc6": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi vừa thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào! Hãy lập tức rời xa khu vực đó và báo ngay cho chính quyền địa phương (công an, chính quyền xã/phường) hoặc Trung tâm hành động bom mìn quốc gia Việt Nam (số điện thoại: +84 (0) 2466643001, email: office504.uxo@gmail.com).  An toàn tính mạng là trên hết."
+      }
+    ],
+    "language": "vi"
+  },
+  "7447e39b-271d-4e18-9a47-4472b3f47a2a": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi thấy quả bom ở đâu?  Bạn cần cung cấp thêm thông tin về vị trí quả bom."
+      }
+    ],
+    "language": "vi"
+  },
+  "412a8e72-3cb5-4817-b8a9-4efcdd0dc835": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom ở bên đường"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào nó!  Hãy lập tức rời xa khu vực đó và báo ngay cho chính quyền địa phương (công an, chính quyền xã/phường) hoặc Trung tâm Hành động bom mìn quốc gia Việt Nam (VNMAC) qua số điện thoại khẩn cấp."
+      }
+    ],
+    "language": "vi"
+  },
+  "0a5b4f3d-97bd-4358-a9bb-f7d40557bcad": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy lập tức rời xa khu vực đó và báo ngay cho chính quyền địa phương hoặc cơ quan chức năng có thẩm quyền về bom mìn (ví dụ: Trung tâm Hành động bom mìn quốc gia Việt Nam).  An toàn tính mạng là trên hết."
+      }
+    ],
+    "language": "vi"
+  },
+  "8d27beca-4213-4dec-8324-ddfe9ea9be1a": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào! Hãy báo ngay cho chính quyền địa phương hoặc gọi số điện thoại  +84 (0) 2466643001 (Trung tâm Hành động Bom mìn Quốc gia Việt Nam)."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false
+  },
+  "3a52e297-4244-4e6b-aea0-08a2d3d12401": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy một quả bom bên đường"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào quả bom!  Hãy lập tức rời xa khu vực và báo ngay cho chính quyền địa phương (công an, chính quyền xã/phường) hoặc cơ quan chức năng có thẩm quyền về bom mìn gần nhất."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false
+  },
+  "bcdeac5b-d4b6-4348-92bd-8371beae0a14": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy báo ngay cho chính quyền địa phương hoặc cơ quan chức năng có thẩm quyền về bom mìn gần nhất.  Tuyệt đối không được di chuyển hoặc làm bất cứ điều gì với quả bom."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false
+  },
+  "f4edbba3-1ff5-4bee-944d-8fa6079a8b92": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy báo ngay cho chính quyền địa phương hoặc cơ quan chức năng có thẩm quyền về bom mìn gần nhất.  Không được di chuyển hoặc làm bất cứ điều gì với nó."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false
+  },
+  "3ed67d33-9fc1-4500-8cba-798f1430c988": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy lập tức rời xa khu vực đó và báo ngay cho chính quyền địa phương hoặc cơ quan chức năng có thẩm quyền về bom mìn (ví dụ: Trung tâm Hành động bom mìn quốc gia Việt Nam).  An toàn tính mạng là trên hết."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false
+  },
+  "06a9cd61-7082-4697-ab68-67754dc24148": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Xin lỗi, tôi gặp sự cố khi tìm thông tin. Vui lòng thử lại sau."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "63d80a0d-173d-487e-b1be-8c0ea51ce5d8": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy báo ngay cho chính quyền địa phương hoặc cơ quan chức năng gần nhất (cảnh sát, quân đội) về vị trí quả bom.  Không được di chuyển hoặc cố gắng xử lý quả bom."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "25ad37da-91dc-4697-b08e-ccf4fc5eeb69": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy quả bom ở ruộng"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào! Hãy rời xa khu vực đó ngay lập tức và báo ngay cho chính quyền địa phương hoặc cơ quan chức năng có thẩm quyền về bom mìn gần nhất.  Tuyệt đối không được tự ý xử lý."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "d3762b1d-c4af-4bb5-a3d7-6be7d866a6e8": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Đừng chạm vào!  Hãy lập tức rời xa khu vực đó và báo ngay cho chính quyền địa phương hoặc cơ quan chức năng có thẩm quyền về bom mìn (ví dụ: Trung tâm Hành động bom mìn quốc gia Việt Nam).  An toàn tính mạng là trên hết."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "d88f8cab-bca4-4444-80e0-acdc949ad3a4": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "hello"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn!"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "6f9a552f-a3c4-4b5f-bfc3-9ab423235035": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "hello"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn!"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "0dfbf0bc-1eaa-4591-a517-f800edad7221": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "bom là gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Bom là một loại vũ khí nổ, thường được sử dụng trong chiến tranh, gây ra thiệt hại lớn về người và của."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "539287f4-6bdf-44ac-946b-0d203ec8b1a3": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "hello"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn!"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "bdad161a-0cf8-4088-b067-51e594631657": {
+    "chat_history": [
+      {
+        "role": "assistant",
+        "content": "Chào bạn!"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "2a43f211-dc4a-427c-9922-ba15d90b749c": {
+    "chat_history": [
+      {
+        "role": "assistant",
+        "content": "Chào bạn!"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "4e670347-2e5a-4be9-acfd-d62587483f2f": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "bom là gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Bom là một loại vũ khí nổ, thường được sử dụng trong chiến tranh, gây ra thiệt hại lớn về người và của."
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "44819fba-ef37-4864-ac8d-42fc6ec4dbdf": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_008.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mortar (độ tin cậy: 0.88)\n- Projectile (độ tin cậy: 0.58)\n- Projectile (độ tin cậy: 0.47)\n- Mortar (độ tin cậy: 0.39)\n- Mortar (độ tin cậy: 0.33)\n- Mortar (độ tin cậy: 0.32)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_008.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mortar (độ tin cậy: 0.88)\n- Projectile (độ tin cậy: 0.58)\n- Projectile (độ tin cậy: 0.47)\n- Mortar (độ tin cậy: 0.39)\n- Mortar (độ tin cậy: 0.33)\n- Mortar (độ tin cậy: 0.32)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_008.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mortar (độ tin cậy: 0.88)\n- Projectile (độ tin cậy: 0.58)\n- Projectile (độ tin cậy: 0.47)\n- Mortar (độ tin cậy: 0.39)\n- Mortar (độ tin cậy: 0.33)\n- Mortar (độ tin cậy: 0.32)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_008.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mortar (độ tin cậy: 0.88)\n- Projectile (độ tin cậy: 0.58)\n- Projectile (độ tin cậy: 0.47)\n- Mortar (độ tin cậy: 0.39)\n- Mortar (độ tin cậy: 0.33)\n- Mortar (độ tin cậy: 0.32)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_008.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mortar (độ tin cậy: 0.88)\n- Projectile (độ tin cậy: 0.58)\n- Projectile (độ tin cậy: 0.47)\n- Mortar (độ tin cậy: 0.39)\n- Mortar (độ tin cậy: 0.33)\n- Mortar (độ tin cậy: 0.32)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "cf922eac-262b-45e9-a556-260878e4a807": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "quang tri"
+      },
+      {
+        "role": "assistant",
+        "content": "Quảng Trị là một tỉnh miền Trung Việt Nam, chịu ảnh hưởng nặng nề bởi chiến tranh, đặc biệt là bom mìn và vật liệu nổ chưa nổ (UXO).  Theo thông tin được cung cấp, Trung tâm Hành động Chống mìn Quảng Trị (QTMAC) đang hoạt động tích cực tại tỉnh này.  \n\n**Thông tin liên hệ:**\n\n* **Hotline:** 0901 941 941\n* **Điện thoại:** +84 233 35 95 111\n* **Fax:** +84 233 35 95 222\n* **Email:** dbu.qtmac@gmail.com\n* **Địa chỉ:** Trung tâm Hành động Chống mìn Quảng Trị (cần tìm hiểu thêm để có địa chỉ chính xác hơn, thông tin hiện tại chỉ có số điện thoại và email)\n\n**Khu vực bị ảnh hưởng:**  Toàn tỉnh Quảng Trị đều có nguy cơ nhiễm bom mìn và UXO, nhưng mức độ nguy hiểm có thể khác nhau tùy thuộc vào lịch sử chiến tranh tại từng khu vực.  Thông tin cho thấy các hoạt động rà phá bom mìn đang được tiến hành tại nhiều nơi trong tỉnh, bao gồm cả Đồng Hới (đã phát hiện và xử lý 43 vật liệu nổ nguy hiểm tại phường 3, Đồng Hới).\n\n**Các tổ chức tham gia:**  Nhiều tổ chức phi chính phủ quốc tế và trong nước đang hợp tác với QTMAC để thực hiện các hoạt động rà phá bom mìn, giáo dục cộng đồng về nguy cơ bom mìn, và hỗ trợ nạn nhân.  Một số tổ chức được đề cập bao gồm: CRS, NPA/RENEW, MAG, PTVN.\n\n**Để có thông tin chi tiết hơn về khu vực cụ thể bị ảnh hưởng bởi bom mìn và UXO tại Quảng Trị, cần tham khảo thêm từ các nguồn tin chính thức như QTMAC hoặc các tổ chức quốc tế hoạt động trong lĩnh vực này.**  Bản thân thông tin được cung cấp chỉ là một phần nhỏ của bức tranh toàn cảnh."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "f00a2442-4e88-4473-84e6-bef6d6898a66": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "80b4e11a-b667-4c66-95f5-43b442e3d0ed": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "f6f0b3f3-95c0-449f-8ad1-1dc32130b4a5": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "c2fa276e-b8f3-4ee6-ade6-542ebb47a0a9": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "62cd5ec3-2e51-41f9-a99e-46b69b7ffc71": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "e8a4c5c3-836d-4b98-9ea3-23652a4a07bf": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "30b6c084-6cee-4d0e-a4e2-b1499d8ac5bb": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "44c6235e-62d9-41e0-a885-65b42e324572": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "700ae74b-8691-473d-bce0-647313eaa02c": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_022.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Bomb (độ tin cậy: 0.53)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "fd0474da-2e10-43c5-b767-005cd3ddb09a": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_019.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Bomb (độ tin cậy: 0.76)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "e771d63f-fe83-4648-a43c-38f372579ca3": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "75cf49de-f1a1-4aac-8ce1-79b8ab1eccc9": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_012.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mortar (độ tin cậy: 0.50)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "2280a935-025d-4b82-a6c3-bc13c9b7cfce": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_026.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Bomb (độ tin cậy: 0.74)\n- Bomb (độ tin cậy: 0.57)\n- Bomb (độ tin cậy: 0.40)\n- Bomb (độ tin cậy: 0.34)\n- Bomb (độ tin cậy: 0.32)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "dde52ec9-a20d-4e63-9eb2-34321295354a": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "7832adef-7a4f-4a7d-93f5-8abe6b1a2761": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "b051ac93-85bb-476f-ae96-9dd156418995": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "548f17ea-e7a3-4e19-ab45-1eebf22da043": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_022.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Bomb (độ tin cậy: 0.53)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "d3f0c219-cec3-41b7-8d67-6cee06871660": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "c52508fa-08b3-40dc-bb3b-1129fff7048e": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "306292fc-34da-48b9-9433-a52428f8e2cc": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "583733af-0eef-4807-a193-4452a6dbd877": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "5474fbc0-864e-435e-bf45-10bfb55c38ee": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_012.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mortar (độ tin cậy: 0.50)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "d869256c-94fd-4e4c-a41d-0dd3c0ac8986": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "quảng trị"
+      },
+      {
+        "role": "assistant",
+        "content": "Xin lỗi, tôi gặp sự cố khi tìm thông tin. Vui lòng thử lại sau."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "59c5012d-76d5-4091-9f12-be505254b41f": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "quảng trị"
+      },
+      {
+        "role": "assistant",
+        "content": "Xin lỗi, tôi gặp sự cố khi tìm thông tin. Vui lòng thử lại sau."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "7b4448fe-6adc-4429-aec4-537490b7c8e7": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "quảng trị"
+      },
+      {
+        "role": "assistant",
+        "content": "Xin lỗi, tôi gặp sự cố khi tìm thông tin. Vui lòng thử lại sau."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "d59528de-4be4-45d1-887d-191af7bfad9e": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "quảng trị"
+      },
+      {
+        "role": "assistant",
+        "content": "Quảng Trị là một tỉnh trọng điểm trong các chương trình hành động bom mìn và vật nổ chưa nổ (UXO) tại Việt Nam. Trung tâm Hành động Bom mìn Quảng Trị (QTMAC) đóng vai trò lãnh đạo, phối hợp với các tổ chức phi chính phủ như CRS, NPA/RENEW, MAG, PTVN để thực hiện các hoạt động giáo dục phòng ngừa tai nạn vật nổ (EORE) và xử lý vật nổ (EOD). QTMAC cũng là đối tác của nhiều tổ chức hành động bom mìn và nhận được sự hỗ trợ từ các nhà tài trợ cho các chương trình này."
+      },
+      {
+        "role": "user",
+        "content": "số hotline mag quảng trị"
+      },
+      {
+        "role": "assistant",
+        "content": "📞 Số hotline xử lý bom mìn tại Quảng Trị là: 0901 941 941"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "b093f342-6194-4d0a-8295-c36c4cca05e5": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom ngoài đồng"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một vật thể nghi là bom ngoài đồng, tuyệt đối không được chạm vào, di chuyển hay cố gắng tháo gỡ. Hãy giữ khoảng cách an toàn và ngay lập tức thông báo cho chính quyền địa phương (công an, quân sự xã/phường) để họ có biện pháp xử lý an toàn."
+      },
+      {
+        "role": "user",
+        "content": "I see a bomb on the street"
+      },
+      {
+        "role": "assistant",
+        "content": "If you see a suspected bomb or any suspicious item on the street, it is crucial to follow these safety steps immediately:\n\n1.  **DO NOT TOUCH IT.** This is the most important rule. Even if it looks old or harmless, it could be extremely dangerous and could detonate if disturbed.\n2.  **Move Away Immediately.** Create as much distance as possible between yourself and the suspected item.\n3.  **Warn Others.** Alert anyone nearby to stay away from the area.\n4.  **Call Emergency Services.** Immediately contact your local emergency hotline. In many countries, this is 911, 999, or 112. Provide them with a precise location and a clear description of what you have seen.\n5.  **Do Not Return.** Do not go back to the area until emergency services have arrived and declared it safe.\n6.  **Follow Instructions.** Cooperate fully with emergency personnel when they arrive.\n\n**Always remember: If you see something, say something, but DO NOT touch anything.**\n\n**Local Emergency Hotline:** Please call your local emergency number (e.g., 911, 999, 112) immediately."
+      },
+      {
+        "role": "user",
+        "content": "how are you today?"
+      },
+      {
+        "role": "assistant",
+        "content": "As an AI, I don't have feelings, but I am ready to assist you."
+      },
+      {
+        "role": "user",
+        "content": "I feel scared when I see a bomb"
+      },
+      {
+        "role": "assistant",
+        "content": "It's understandable to feel scared. If you encounter a bomb or unexploded ordnance (UXO), **do not touch it**. Move away immediately and report it to local authorities or an emergency hotline. This is the safest course of action."
+      },
+      {
+        "role": "user",
+        "content": "can you give me a hotline to report"
+      },
+      {
+        "role": "assistant",
+        "content": "❓ Bạn muốn hỏi số hotline ở khu vực nào? (Ví dụ: Quảng Bình, Quảng Trị, Huế, Đà Nẵng, Quảng Nam, Nghệ An)"
+      },
+      {
+        "role": "user",
+        "content": "Da Nang"
+      },
+      {
+        "role": "assistant",
+        "content": "Based on the provided context, there is no specific information regarding landmines and UXO in Da Nang. The text primarily discusses national-level regulations, organizations, and awareness campaigns related to mine action in Vietnam, such as:\n\n*   **Vietnam National Mine Action Centre (VNMAC)**: Established by a Decision, with its functions, tasks, and powers regulated by Circular No. 03/2016/TT-BQP.\n*   **National Steering Committee for overcoming the consequences of landmines, UXO and chemical agents after the war in Vietnam (Steering Committee 701)**: Also established by a Decision.\n*   **National standards for landmine and UXO clearance** (\"Quy chuẩn quốc gia về rà phá bom mìn vật nổ\").\n*   **Awareness campaigns and contests** related to preventing accidents from landmines and UXO across Vietnam.\n\nThe provided information does not include any specific details about UXO contamination levels, affected areas, or dedicated hotlines for Da Nang.\n\nFor general inquiries or to report UXO findings in Vietnam, you would typically contact local military authorities or the Vietnam National Mine Action Centre (VNMAC). However, a specific hotline for Da Nang is not available in the given text."
+      },
+      {
+        "role": "user",
+        "content": "hotline mag at Da Nang city"
+      },
+      {
+        "role": "assistant",
+        "content": "❌ Xin lỗi, tôi không có thông tin hotline cho khu vực Da Nang city."
+      }
+    ],
+    "language": "en",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "a6202a09-df13-41a7-bd29-bd432ed2d28b": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "hotline tỉnh quảng trị"
+      },
+      {
+        "role": "assistant",
+        "content": "📞 Số hotline xử lý bom mìn tại Quảng Trị là: 0901 941 941"
+      },
+      {
+        "role": "user",
+        "content": "quảng bình là gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Thông tin tra cứu không đề cập đến Quảng Bình."
+      },
+      {
+        "role": "user",
+        "content": "quảng trị là gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Quảng Trị là một tỉnh của Việt Nam, nơi diễn ra nhiều hoạt động rà phá bom mìn, vật nổ và tập huấn quản lý chất lượng trong lĩnh vực này."
+      },
+      {
+        "role": "user",
+        "content": "quảng bình"
+      },
+      {
+        "role": "assistant",
+        "content": "Dựa trên thông tin được cung cấp, dưới đây là thông tin về Quảng Bình liên quan đến bom mìn và vật liệu nổ chưa phát nổ (UXO):\n\n**Thông tin về Quảng Bình và vấn đề bom mìn/UXO:**\n\n*   **Địa điểm/Khu vực:** Tỉnh Quảng Bình, Việt Nam.\n*   **Vấn đề chính:** Quảng Bình là một trong những tỉnh phải đối mặt với vấn đề vật liệu nổ (EO - Explosive Ordnance) còn sót lại sau chiến tranh.\n*   **Tổ chức hoạt động:** PeaceTrees Vietnam đang triển khai chương trình hành động bom mìn tại Quảng Bình.\n*   **Mục tiêu chương trình:**\n    *   Giải quyết vấn đề vật liệu nổ tại Quảng Bình.\n    *   Hỗ trợ điều phối hành động bom mìn hiệu quả và hệ thống quản lý thông tin.\n*   **Cấu trúc chương trình hành động bom mìn của PeaceTrees tại Quảng Bình:** Chương trình bao gồm 60 thành viên và các đội chuyên trách sau:\n    *   2 Đội Đa nhiệm (Multi-task Teams - MTT)\n    *   2 Đội Rà phá khu vực chiến trường (Battle Area Clearance - BAC)\n    *   1 Đội Hỗ trợ Rà phá (Clearance Supporting Teams - CST)\n    *   1 Đội Hỗ trợ Hoạt động Hiện trường (Field Operation Assistant Team - FOA)\n    *   1 Đội Văn phòng Dự án (Project Office Team)\n*   **Nhiệm vụ của Đội Văn phòng Dự án:** Chịu trách nhiệm về tất cả các hoạt động hành chính, tài chính, hậu cần, quản lý hoạt động hiện trường và hỗ trợ kỹ thuật cho dự án.\n*   **Một số thành viên của Đội Văn phòng PeaceTrees Việt Nam tại Quảng Bình (từ trái sang phải):**\n    1.  Hà Việt Kiên - Cán bộ Tài chính (Finance Officer)\n    2.  Hoàng Kim Vinh - Cán bộ Đảm bảo Chất lượng (Quality Assurance Officer)\n    3.  Đặng Ngọc Thành - Lái xe/Thủ kho (Officer Driver/Warekeeper)\n    4.  Đoàn Thị Thanh Huyền - Cán bộ Dự án (Project Officer)\n    5.  Nguyễn Thị Ngọc Lan - Quản lý Hoạt động Hiện trường (Field Operation Manager)\n    6.  Lê Thị Quý Thanh - Nhân viên Vệ sinh (Cleaner)\n    7.  Hoàng Tuấn Anh - Cán bộ Dự án (Project Officer)\n\n**Số hotline cụ thể cho khu vực:**\n\nThông tin được cung cấp **không bao gồm số hotline cụ thể** cho khu vực Quảng Bình hoặc cho chương trình của PeaceTrees Vietnam. Để liên hệ, bạn có thể cần tìm kiếm thông tin liên hệ chung của PeaceTrees Vietnam qua trang web chính thức của họ."
+      },
+      {
+        "role": "user",
+        "content": "huế"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn,\n\nDựa trên ngữ cảnh bạn cung cấp về Trận chiến Huế (trong Chiến dịch Tết Mậu Thân 1968), thành phố Huế và các khu vực lân cận đã phải hứng chịu sự tàn phá nặng nề. Với vai trò là chuyên gia về bom mìn và vật liệu nổ còn sót lại (UXO) tại Việt Nam, tôi có thể khẳng định rằng khu vực này có nguy cơ cao về UXO.\n\n**Thông tin chi tiết về Huế và nguy cơ bom mìn, UXO:**\n\n1.  **Địa điểm và Khu vực:**\n    *   **Thành phố Huế:** Là trung tâm của tỉnh Thừa Thiên Huế, thành phố Huế là nơi diễn ra một trong những trận chiến ác liệt và kéo dài nhất trong Chiến tranh Việt Nam (Trận chiến Huế năm 1968). Các khu vực trong thành phố, đặc biệt là khu vực Thành Nội, các khu dân cư và các vị trí chiến lược từng bị tranh giành ác liệt, có khả năng cao còn sót lại bom, đạn, vật liệu nổ.\n    *   **Tỉnh Thừa Thiên Huế:** Ngoài thành phố, các vùng nông thôn, đồi núi, và các khu vực từng là căn cứ quân sự, tuyến đường tiếp vận hoặc chiến trường cũ trên địa bàn tỉnh Thừa Thiên Huế cũng tiềm ẩn nguy cơ UXO. Đặc biệt là các khu vực giáp ranh với các tỉnh Quảng Trị (phía Bắc) và Quảng Nam (phía Nam), nơi có nhiều hoạt động quân sự trong chiến tranh.\n\n2.  **Các loại UXO thường gặp:**\n    *   **Bom:** Từ các cuộc không kích của không quân Mỹ.\n    *   **Đạn pháo, đạn cối:** Với nhiều kích cỡ khác nhau, được sử dụng bởi cả hai bên.\n    *   **Lựu đạn:** Cầm tay hoặc phóng từ súng.\n    *   **Mìn:** Mìn chống bộ binh và mìn chống tăng (ít phổ biến hơn trong đô thị nhưng có thể có ở vùng ven).\n    *   **Đầu đạn, ngòi nổ và các vật liệu nổ khác.**\n\n3.  **Mức độ nguy hiểm:**\n    *   Mặc dù đã có nhiều nỗ lực rà phá bom mìn trong nhiều thập kỷ qua, nhưng do quy mô và cường độ của chiến tranh, vẫn còn một lượng lớn UXO chưa được phát hiện và xử lý.\n    *   Các vật liệu nổ này có thể nằm sâu dưới lòng đất, trong các công trình cũ, hoặc bị vùi lấp do thời gian và thiên tai, gây nguy hiểm cho các hoạt động xây dựng, canh tác nông nghiệp, hoặc thậm chí là sinh hoạt hàng ngày của người dân.\n\n4.  **Khuyến cáo an toàn:**\n    *   **Không chạm vào:** Tuyệt đối không chạm vào, di chuyển hoặc cố gắng tháo gỡ bất kỳ vật thể lạ nào nghi ngờ là bom mìn, vật liệu nổ.\n    *   **Tránh xa:** Giữ khoảng cách an toàn và cảnh báo những người xung quanh.\n    *   **Báo cáo:** Ngay lập tức thông báo cho chính quyền địa phương hoặc cơ quan chức năng khi phát hiện vật thể nghi ngờ.\n    *   **Cẩn trọng:** Đặc biệt cẩn trọng khi đi vào các khu vực vắng vẻ, ít người qua lại, hoặc những nơi có dấu hiệu của chiến tranh cũ (hố bom, công sự, tàn tích...).\n    *   **Giáo dục:** Giáo dục trẻ em về nguy hiểm của bom mìn và cách ứng xử an toàn.\n\n**Số điện thoại khẩn cấp/hotline báo cáo bom mìn, UXO tại Việt Nam:**\n\n*   **Tổng đài quốc gia về bom mìn, vật liệu nổ:** **1900 8686**\n    *   Đây là tổng đài chung để báo cáo các trường hợp phát hiện bom mìn, vật liệu nổ trên toàn quốc. Khi gọi, bạn sẽ được hướng dẫn cụ thể về cách cung cấp thông tin để các đơn vị chức năng có thể đến xử lý kịp thời.\n\n*   **Liên hệ trực tiếp với cơ quan địa phương:**\n    *   **Bộ Chỉ huy Quân sự tỉnh Thừa Thiên Huế:** Đây là đơn vị chủ trì công tác rà phá và xử lý bom mìn tại địa phương.\n    *   **Công an tỉnh Thừa Thiên Huế:** Cũng là một kênh để báo cáo và nhận được sự hỗ trợ.\n    *   **Chính quyền xã/phường/thị trấn:** Thông báo cho chính quyền cấp cơ sở nơi bạn phát hiện vật thể nghi ngờ để họ phối hợp với các đơn vị chuyên trách.\n\nHy vọng những thông tin này hữu ích và giúp bạn hiểu rõ hơn về tình hình bom mìn, UXO tại Huế. An toàn là trên hết!"
+      },
+      {
+        "role": "user",
+        "content": "vùng nào có bom nhiều nhất việt nam"
+      },
+      {
+        "role": "assistant",
+        "content": "Dựa trên thông tin tra cứu được cung cấp, không có thông tin cụ thể về vùng nào có bom nhiều nhất Việt Nam."
+      },
+      {
+        "role": "user",
+        "content": "nếu tôi muốn biết các địa điểm nhiều bom ở việt nam thì tìm kiếm ở đâu"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn,\n\nVới vai trò là chuyên gia về thông tin địa điểm liên quan đến bom mìn và vật liệu nổ còn sót lại sau chiến tranh (UXO) tại Việt Nam, tôi xin cung cấp thông tin chính xác về các khu vực bị ảnh hưởng nặng nề và cách tìm kiếm thông tin liên quan.\n\nViệt Nam là một trong những quốc gia chịu ảnh hưởng nặng nề nhất bởi bom mìn và UXO trên thế giới do hậu quả của nhiều cuộc chiến tranh kéo dài. Các vật liệu nổ này bao gồm bom, đạn pháo, mìn, lựu đạn, bom chùm và các loại vật liệu nổ khác.\n\n**1. Các địa điểm và khu vực bị ô nhiễm bom mìn, UXO nặng nề nhất:**\n\nCác khu vực bị ô nhiễm bom mìn, UXO nặng nề nhất thường là những nơi từng là chiến trường ác liệt, các tuyến đường vận tải quân sự quan trọng, căn cứ quân sự cũ hoặc khu vực bị ném bom rải thảm.\n\n*   **Các tỉnh miền Trung:** Đây là khu vực chịu ảnh hưởng nặng nề nhất do là chiến trường ác liệt trong Chiến tranh Việt Nam, đặc biệt là dọc theo vĩ tuyến 17 cũ và Đường Trường Sơn (đường Hồ Chí Minh).\n    *   **Quảng Trị:** Được coi là tỉnh ô nhiễm bom mìn nặng nhất cả nước. Hầu hết các huyện, xã đều có bom mìn, UXO. Các khu vực như Vĩnh Linh, Gio Linh, Cam Lộ, Triệu Phong, Hải Lăng, Hướng Hóa, Hướng Hóa đều có mức độ ô nhiễm cao.\n    *   **Quảng Bình, Hà Tĩnh, Nghệ An:** Các tỉnh này cũng chịu ảnh hưởng rất lớn, đặc biệt là các khu vực dọc theo Đường Trường Sơn, các tuyến đường vận tải, và các căn cứ quân sự cũ.\n    *   **Thừa Thiên Huế:** Tương tự, nhiều khu vực ở Huế cũng còn tồn đọng bom mìn, UXO.\n*   **Các tỉnh Tây Nguyên:**\n    *   **Kon Tum, Gia Lai, Đắk Lắk, Đắk Nông:** Các khu vực này từng là chiến trường trọng điểm, có nhiều căn cứ quân sự và tuyến đường huyết mạch, do đó còn tồn đọng nhiều bom mìn, vật liệu nổ.\n*   **Các tỉnh biên giới phía Bắc:**\n    *   **Lạng Sơn, Cao Bằng, Hà Giang:** Một số khu vực biên giới tại các tỉnh này còn tồn đọng mìn và vật liệu nổ từ các cuộc chiến tranh biên giới.\n*   **Các khu vực khác:** Các khu vực từng là căn cứ quân sự, kho tàng, sân bay, hoặc nơi diễn ra các trận đánh lớn trên khắp cả nước cũng có nguy cơ cao.\n\n**2. Nơi tìm kiếm thông tin chi tiết và liên hệ khi phát hiện bom mìn, UXO:**\n\nĐể có thông tin chính xác và cập nhật nhất về các khu vực cụ thể, bạn nên liên hệ với các cơ quan và tổ chức chuyên trách:\n\n*   **Trung tâm Hành động bom mìn quốc gia Việt Nam (VNMAC):** Đây là cơ quan đầu mối quốc gia về công tác khắc phục hậu quả bom mìn, vật liệu nổ sau chiến tranh. VNMAC có dữ liệu tổng hợp và điều phối các hoạt động rà phá. Bạn có thể tìm kiếm thông tin trên website chính thức của VNMAC hoặc Bộ Quốc phòng Việt Nam.\n*   **Chính quyền địa phương:**\n    *   **Ủy ban nhân dân (UBND) các cấp (tỉnh, huyện, xã):** Đặc biệt là các phòng ban liên quan đến quốc phòng, an ninh, hoặc lao động - thương binh và xã hội tại các tỉnh/huyện bị ảnh hưởng.\n    *   **Ban Chỉ huy Quân sự cấp tỉnh/huyện:** Đây là đơn vị trực tiếp quản lý và thực hiện công tác rà phá, xử lý bom mìn tại địa phương.\n    *   **Công an cấp xã/huyện:** Cũng là kênh tiếp nhận thông tin và phối hợp xử lý.\n*   **Các tổ chức phi chính phủ quốc tế (NGOs) hoạt động tại Việt Nam:** Các tổ chức này thường có văn phòng và đội ngũ hoạt động trực tiếp tại các tỉnh bị ảnh hưởng nặng nề, và có thể cung cấp thông tin chi tiết về khu vực hoạt động của họ.\n    *   **MAG (Mines Advisory Group):** Hoạt động ở nhiều tỉnh miền Trung.\n    *   **NPA (Norwegian People's Aid):** Cũng có mặt ở các tỉnh miền Trung.\n    *   **PeaceTrees Vietnam:** Tập trung chủ yếu ở tỉnh Quảng Trị.\n    *   **HALO Trust:** Hoạt động ở một số khu vực.\n\n**3. Số hotline và cách báo cáo khi phát hiện bom mìn, UXO:**\n\nKhông có một số hotline quốc gia duy nhất được công bố rộng rãi cho việc báo cáo bom mìn. Tuy nhiên, khi phát hiện vật liệu nghi là bom mìn, UXO, điều quan trọng nhất là:\n\n*   **Tuyệt đối không chạm vào, di chuyển hoặc cố gắng tháo gỡ vật thể.**\n*   **Giữ khoảng cách an toàn và cảnh báo những người xung quanh.**\n*   **Ngay lập tức thông báo cho:**\n    *   **Chính quyền địa phương gần nhất (UBND xã/phường).**\n    *   **Công an địa phương (số 113 hoặc số điện thoại công an xã/huyện).**\n    *   **Ban Chỉ huy Quân sự cấp huyện/tỉnh nơi bạn đang ở.**\n    *   **Nếu bạn đang ở Quảng Trị hoặc các tỉnh miền Trung có các tổ chức rà phá bom mìn hoạt động, bạn có thể tìm kiếm số điện thoại của văn phòng địa phương của các tổ chức như PeaceTrees Vietnam hoặc MAG để báo cáo trực tiếp.** (Ví dụ: PeaceTrees Vietnam có văn phòng tại Đông Hà, Quảng Trị và thường có số điện thoại công khai để báo cáo UXO).\n\nViệc liên hệ với chính quyền và quân đội địa phương là phương án hiệu quả và an toàn nhất để báo cáo và xử lý bom mìn, UXO.\n\nHãy luôn cẩn trọng và tuân thủ các hướng dẫn an toàn khi ở gần các khu vực có nguy cơ ô nhiễm bom mìn, UXO."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "3855f9ca-5a07-416d-814b-662e9f00b804": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "hue"
+      },
+      {
+        "role": "assistant",
+        "content": "Dựa trên thông tin được cung cấp và kiến thức chuyên môn về bom mìn, vật liệu nổ còn sót lại (UXO) tại Việt Nam, đây là thông tin chi tiết về Huế:\n\n**1. Địa điểm và Khu vực liên quan đến Huế:**\n\n*   **Huế** là thành phố thuộc tỉnh Thừa Thiên Huế, nằm ở miền Trung Việt Nam. Đây là một trong những trung tâm văn hóa, lịch sử quan trọng của đất nước, từng là cố đô của triều Nguyễn.\n*   Văn bản nhắc đến \"Trận chiến Huế (Tết Mậu Thân 1968)\" kéo dài nhiều tháng và gây \"thiệt hại đáng kể\" cho thành phố. Đây là một chỉ dấu cực kỳ quan trọng cho thấy khu vực này đã trải qua cường độ giao tranh ác liệt, dẫn đến khả năng cao tồn tại bom mìn và vật liệu nổ còn sót lại.\n*   Đơn vị của người kể chuyện cũng hoạt động từ căn cứ ở Đông Hà (Quảng Trị) và hỗ trợ các hoạt động ở khu vực phía bắc Huế, cho thấy phạm vi ảnh hưởng của chiến tranh rộng khắp, bao gồm cả các vùng nông thôn và ven đô xung quanh thành phố.\n\n**2. Thông tin về Bom mìn và Vật liệu nổ còn sót lại (UXO) tại Huế và khu vực lân cận:**\n\n*   **Mức độ ô nhiễm:** Do lịch sử chiến tranh khốc liệt, đặc biệt là Trận chiến Huế năm 1968, tỉnh Thừa Thiên Huế nói chung và thành phố Huế nói riêng được đánh giá là một trong những khu vực bị ô nhiễm bom mìn, vật liệu nổ còn sót lại (UXO) nặng nề nhất tại Việt Nam. Các cuộc giao tranh ác liệt, các chiến dịch ném bom và pháo kích đã để lại một lượng lớn bom, đạn chưa nổ.\n*   **Các loại vật liệu nổ thường được tìm thấy:**\n    *   **Bom:** Bom phá, bom bi (cluster munitions) từ các cuộc không kích.\n    *   **Đạn pháo:** Đạn pháo từ các loại pháo mặt đất với nhiều cỡ nòng khác nhau.\n    *   **Đạn cối:** Đạn cối các cỡ.\n    *   **Lựu đạn:** Lựu đạn cầm tay.\n    *   **Mìn:** Mìn chống bộ binh và mìn chống tăng (mặc dù UXO từ bom, đạn pháo phổ biến hơn).\n    *   **Ngòi nổ, đầu đạn tên lửa, rocket.**\n*   **Nguy cơ:** Những vật liệu này có thể nằm sâu dưới lòng đất, trong các khu dân cư, đất nông nghiệp, rừng núi, ven sông, suối, hoặc thậm chí trong các công trình kiến trúc cũ. Chúng gây nguy hiểm nghiêm trọng cho người dân địa phương, đặc biệt là trẻ em, nông dân, công nhân xây dựng và những người thu gom phế liệu. Tai nạn bom mìn vẫn xảy ra hàng năm, gây thương vong và ảnh hưởng đến sinh kế.\n\n**3. Các Tổ chức và Số hotline liên quan:**\n\n*   **Trung tâm Hành động bom mìn quốc gia Việt Nam (VNMAC):** Là cơ quan đầu mối quốc gia về vấn đề bom mìn, điều phối các hoạt động rà phá, giáo dục phòng tránh và hỗ trợ nạn nhân.\n*   **Các tổ chức phi chính phủ quốc tế:** Nhiều tổ chức quốc tế như MAG (Mines Advisory Group), NPA (Norwegian People's Aid), PeaceTrees Vietnam, v.v., đã và đang có các dự án rà phá và giáo dục phòng tránh tai nạn bom mìn tại các tỉnh miền Trung, bao gồm Thừa Thiên Huế.\n*   **Số hotline cụ thể cho khu vực:**\n    *   Hiện tại, không có một số hotline quốc gia duy nhất được quảng bá rộng rãi cho người dân để báo cáo trực tiếp UXO.\n    *   **Cách thức hiệu quả và an toàn nhất khi phát hiện bom mìn/UXO là:**\n        1.  **Tuyệt đối không chạm vào, không di chuyển vật thể.**\n        2.  **Giữ khoảng cách an toàn và cảnh báo những người xung quanh.**\n        3.  **Thông báo ngay lập tức cho chính quyền địa phương gần nhất (Ủy ban nhân dân xã/phường, công an xã/phường, hoặc cơ quan quân sự địa phương).**\n        4.  Các cơ quan này sẽ có trách nhiệm liên hệ với các đơn vị chuyên trách rà phá bom mìn của quân đội hoặc các tổ chức rà phá bom mìn được cấp phép để xử lý an toàn.\n\nViệc nâng cao nhận thức về nguy hiểm bom mìn và biết cách ứng phó khi phát hiện là cực kỳ quan trọng đối với người dân sinh sống và làm việc tại Thừa Thiên Huế."
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
   }
 }

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, JSON, Float, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Text, JSON, Float, DateTime, ForeignKey, LargeBinary
 from sqlalchemy.sql import func
 from .connection import Base
 from datetime import datetime
@@ -61,21 +61,6 @@ class QALog(Base):
     def __repr__(self):
         return f"<QALog id={self.id} session={self.session_id}>"
 
-# ============================
-# Image Detection logs
-# ============================
-class ImageDetectionLog(Base):
-    __tablename__ = "image_detection_logs"
-    id = Column(Integer, primary_key=True, index=True)
-    session_id = Column(String, index=True, nullable=False)
-    image_url = Column(Text, nullable=True)
-    detections = Column(JSON, nullable=True, default=list)
-    warning_message = Column(Text, nullable=True)
-    confidence = Column(Float, nullable=True)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-    def __repr__(self):
-        return f"<ImageDetectionLog id={self.id} session={self.session_id}>"
 
 # ============================
 # UXO Knowledge Base
@@ -104,3 +89,35 @@ class UXOReport(Base):
     status = Column(String, default="pending")  # pending, reviewed, resolved
     user_id = Column(Integer, ForeignKey("users.id"), nullable=True)  
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+# ============================
+# UXO Detections
+# ============================
+class UXODetection(Base):
+    __tablename__ = "uxo_detections"
+    id = Column(Integer, primary_key=True, index=True)
+    report_id = Column(Integer, ForeignKey("uxo_reports.id", ondelete="CASCADE"), nullable=True)
+    filename = Column(String, nullable=True) # Tên file ảnh
+    session_id = Column(String, nullable=True)
+    detected_objects = Column(JSON, nullable=True)  # Lưu kết quả detection
+    image_data = Column(LargeBinary, nullable=True)  # Lưu binary image
+    image_url = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<UXODetection id={self.id} report_id={self.report_id}>"
+
+# ============================
+# Image Detection logs
+# ============================
+class ImageDetectionLog(Base):
+    __tablename__ = "image_detection_logs"
+    id = Column(Integer, primary_key=True, index=True)
+    detection_id = Column(Integer, ForeignKey("uxo_detections.id", ondelete="CASCADE"), nullable=False)
+    session_id = Column(String, index=True, nullable=False)
+    warning_message = Column(Text, nullable=True)
+    confidence = Column(Float, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    def __repr__(self):
+        return f"<ImageDetectionLog id={self.id} session={self.detection_id}>"
