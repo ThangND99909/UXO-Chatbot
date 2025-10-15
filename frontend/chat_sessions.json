@@ -1653,5 +1653,287 @@
     "last_intent": null,
     "analysis_done": false,
     "detection_result": null
+  },
+  "b89595e7-432e-4677-9efc-1b9acf767d41": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_014.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Mine (độ tin cậy: 0.56)\n"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "177d4032-4f18-4bc5-b705-ab997e034386": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom ở đường"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\nHãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "64037608-9343-4ab8-86df-c18c41a466d2": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n    Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n    📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n    • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n    • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      },
+      {
+        "role": "user",
+        "content": "quả bom ở đường hoàng diệu"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn,\n\nVới vai trò là chuyên gia hướng dẫn an toàn về bom mìn và vật nổ chưa nổ (UXO), tôi xin trả lời câu hỏi của bạn về \"quả bom ở đường Hoàng Diệu\" như sau:\n\nDựa trên thông tin tra cứu được cung cấp, không có bất kỳ thông tin nào đề cập đến việc phát hiện quả bom tại đường Hoàng Diệu. Các thông tin được cung cấp nói về các trường hợp phát hiện bom mìn tại xã Nậm Nèn (huyện Mường Chà), tỉnh Quảng Trị (thôn Lương Lễ, xã Tân Hợp, huyện Hướng Hóa) và tỉnh Nghệ An.\n\nTuy nhiên, dù ở bất kỳ địa điểm nào, nếu bạn hoặc ai đó phát hiện một vật thể nghi ngờ là bom, mìn hoặc vật nổ chưa nổ (UXO), điều quan trọng nhất là phải tuân thủ các nguyên tắc an toàn tuyệt đối sau đây:\n\n1.  **TUYỆT ĐỐI KHÔNG CHẠM VÀO VẬT NGHI NGỜ!** Đây là quy tắc vàng. Vật nổ chưa nổ có thể rất không ổn định và có thể phát nổ bất cứ lúc nào chỉ với một tác động nhỏ.\n2.  **Giữ khoảng cách an toàn:** Ngay lập tức di chuyển ra xa vật thể nghi ngờ ít nhất 50-100 mét.\n3.  **Cảnh báo người khác:** Thông báo cho những người xung quanh biết về vật thể nguy hiểm để họ cũng giữ khoảng cách và không lại gần.\n4.  **Đánh dấu vị trí (nếu an toàn):** Nếu có thể và an toàn, hãy đánh dấu vị trí của vật thể từ xa bằng cách đặt một vật gì đó dễ nhận biết (như một cành cây, viên đá) ở một khoảng cách an toàn để giúp lực lượng chức năng dễ dàng tìm thấy.\n5.  **GỌI NGAY HOTLINE CƠ QUAN CHỨC NĂNG TẠI ĐỊA PHƯƠNG!**\n\n**Số hotline bạn cần gọi ngay lập tức là:**\n\n*   **113 (Cảnh sát)**\n*   Hoặc liên hệ với **Bộ Chỉ huy Quân sự tỉnh/huyện** tại địa phương của bạn.\n\nHãy cung cấp thông tin chi tiết về vị trí, hình dạng, kích thước của vật thể nghi ngờ cho lực lượng chức năng. Họ là những người được đào tạo chuyên nghiệp để xử lý các tình huống nguy hiểm này một cách an toàn nhất.\n\nAn toàn của bạn và cộng đồng là ưu tiên hàng đầu. Hãy luôn cẩn trọng và tuân thủ các hướng dẫn an toàn này."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "5dde0569-61a0-4dab-b038-b602977fb288": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom ở trên cánh đồng"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n    Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n    📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n    • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n    • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      },
+      {
+        "role": "user",
+        "content": "vị trí quả bom ở cánh đồng A gần trạm bơm nước"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn,\n\nTôi hiểu rằng bạn đã phát hiện một vật thể nghi ngờ là bom ở cánh đồng A gần trạm bơm nước. Đây là một tình huống rất nguy hiểm và cần được xử lý hết sức cẩn trọng. Là chuyên gia hướng dẫn an toàn về bom mìn và vật nổ chưa nổ (UXO), tôi xin cung cấp các bước hướng dẫn rõ ràng và an toàn nhất.\n\n**⚠️ QUAN TRỌNG NHẤT: TUYỆT ĐỐI KHÔNG CHẠM VÀO VẬT THỂ NGHI NGỜ!**\n\nDù vật thể đó có vẻ cũ kỹ, rỉ sét hay không có dấu hiệu nguy hiểm rõ ràng, nó vẫn có thể phát nổ bất cứ lúc nào nếu bị tác động. Bom mìn và vật nổ còn sót lại sau chiến tranh là cực kỳ nguy hiểm và đã gây ra hàng chục nghìn cái chết và thương tích tại Việt Nam.\n\n**Các bước bạn cần thực hiện ngay lập tức để đảm bảo an toàn:**\n\n1.  **Giữ khoảng cách an toàn:** Ngay lập tức di chuyển ra xa vật thể nghi ngờ ít nhất 100 mét hoặc xa hơn nếu có thể. Đừng cố gắng lại gần để kiểm tra hay chụp ảnh.\n2.  **Cảnh báo người khác:** Thông báo cho những người xung quanh (đặc biệt là trẻ em và người lao động) về mối nguy hiểm và yêu cầu họ giữ khoảng cách an toàn.\n3.  **Đánh dấu vị trí (từ xa):** Nếu có thể làm điều này một cách an toàn từ xa (ví dụ: dùng một cành cây, hòn đá lớn để tạo dấu hiệu dễ nhận biết mà không cần lại gần vật thể), hãy đánh dấu vị trí để cơ quan chức năng dễ dàng tìm thấy. Tuyệt đối không lại gần vật thể để đánh dấu.\n4.  **GỌI NGAY CHO CƠ QUAN CHỨC NĂNG ĐỊA PHƯƠNG:** Đây là bước quan trọng nhất. Bạn cần thông báo ngay lập tức cho các đơn vị chuyên trách về bom mìn hoặc chính quyền địa phương.\n\n**Số hotline và cơ quan bạn cần liên hệ:**\n\nVì không có số hotline chuyên biệt cho việc xử lý bom mìn được cung cấp trong thông tin, bạn hãy liên hệ ngay với:\n\n*   **Công an địa phương:** Gọi số **113** (số điện thoại khẩn cấp của cảnh sát) hoặc số điện thoại của đồn công an xã/phường/huyện gần nhất.\n*   **Ban Chỉ huy Quân sự địa phương:** Đây là đơn vị có chuyên môn và trách nhiệm chính trong việc xử lý bom mìn, vật nổ. Hãy tìm số điện thoại của Ban Chỉ huy Quân sự cấp huyện hoặc tỉnh.\n*   **Chính quyền địa phương:** Liên hệ với Ủy ban nhân dân xã/phường/thị trấn để họ có thể thông báo cho các đơn vị chuyên trách.\n\nKhi gọi điện, hãy cung cấp thông tin chi tiết nhất có thể về vị trí (cánh đồng A, gần trạm bơm nước), mô tả vật thể (nếu bạn nhìn thấy từ xa mà không lại gần), và bất kỳ thông tin nào khác bạn cho là hữu ích.\n\n**Nhắc lại lần nữa:**\n\n*   **KHÔNG BAO GIỜ CHẠM VÀO, DI CHUYỂN, HAY CỐ GẮNG THÁO GỠ VẬT THỂ NGHI NGỜ.**\n*   **KHÔNG NÉM ĐÁ, ĐẬP PHÁ HAY LÀM BẤT CỨ ĐIỀU GÌ CÓ THỂ KÍCH HOẠT VẬT NỔ.**\n*   **GIỮ KHOẢNG CÁCH AN TOÀN VÀ CHỜ ĐỢI SỰ CAN THIỆP CỦA CÁC CHUYÊN GIA.**\n\nAn toàn của bạn và những người xung quanh là ưu tiên hàng đầu. Hãy hành động một cách có trách nhiệm và tuân thủ nghiêm ngặt các hướng dẫn trên."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "6a1509d3-c416-40a8-bc39-36aa8519f4b6": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom ở trên đồi"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n    Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n    📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n    • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n    • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      },
+      {
+        "role": "user",
+        "content": "vị trí quả bom ở đồi A gần ruộng lúa"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn,\n\nCảm ơn bạn đã cung cấp thông tin về vị trí nghi ngờ có bom tại đồi A gần ruộng lúa. Đây là một thông tin rất quan trọng và cần được xử lý hết sức cẩn trọng để đảm bảo an toàn tuyệt đối.\n\nVới vai trò là chuyên gia hướng dẫn an toàn về bom mìn và vật nổ chưa nổ (UXO), tôi xin hướng dẫn bạn các bước cần thực hiện ngay lập tức:\n\n1.  **TUYỆT ĐỐI KHÔNG CHẠM VÀO VẬT NGHI NGỜ:** Đây là nguyên tắc quan trọng nhất. Dù vật đó trông như thế nào, bạn không được phép chạm vào, di chuyển, hoặc cố gắng kiểm tra nó. Vật nổ chưa nổ có thể rất nhạy cảm và có thể phát nổ bất cứ lúc nào nếu bị tác động.\n2.  **Giữ khoảng cách an toàn:** Ngay lập tức di chuyển ra xa khỏi khu vực nghi ngờ có vật nổ. Khoảng cách an toàn tối thiểu là vài chục mét, tốt nhất là càng xa càng tốt.\n3.  **Đánh dấu khu vực (nếu an toàn):** Nếu có thể làm được mà không cần đến gần vật nghi ngờ, hãy tìm cách đánh dấu khu vực đó từ xa bằng các vật dụng có sẵn như cành cây, đá, hoặc mảnh vải để người khác biết mà tránh. Tuyệt đối không đến gần vật nghi ngờ để đánh dấu.\n4.  **Cảnh báo người khác:** Thông báo cho những người xung quanh (đặc biệt là trẻ em và người dân địa phương) về mối nguy hiểm và yêu cầu họ tránh xa khu vực đó.\n5.  **GỌI NGAY CHO CƠ QUAN CHỨC NĂNG ĐỊA PHƯƠNG:** Đây là bước quan trọng nhất. Bạn cần liên hệ ngay lập tức với các cơ quan chức năng có thẩm quyền tại địa phương để báo cáo sự việc.\n    *   **Số điện thoại khẩn cấp chung:**\n        *   **113 (Công an):** Đây là số khẩn cấp của lực lượng Công an, họ sẽ tiếp nhận thông tin và phối hợp với các đơn vị chuyên trách.\n        *   **114 (Cứu hỏa - Cứu nạn):** Lực lượng này cũng có thể hỗ trợ trong việc phong tỏa khu vực và phối hợp với các đơn vị xử lý bom mìn.\n    *   **Liên hệ trực tiếp với Bộ Chỉ huy Quân sự tỉnh/huyện hoặc Ban Chỉ huy Quân sự xã/phường:** Đây là đơn vị có chuyên môn và trách nhiệm chính trong việc xử lý bom mìn, vật nổ chưa nổ. Bạn có thể tìm số điện thoại của các đơn vị này qua tổng đài hoặc hỏi người dân địa phương.\n\n**Lưu ý quan trọng:**\n\n*   Khi gọi điện, hãy cung cấp thông tin rõ ràng và chính xác nhất có thể về vị trí (đồi A gần ruộng lúa), mô tả vật nghi ngờ (nếu bạn nhìn thấy từ xa mà không cần đến gần), và bất kỳ thông tin nào khác bạn cho là hữu ích.\n*   Hãy làm theo hướng dẫn của các cơ quan chức năng.\n\nHãy nhớ rằng, sự an toàn của bạn và những người xung quanh là ưu tiên hàng đầu. **KHÔNG BAO GIỜ TỰ Ý XỬ LÝ HOẶC CHẠM VÀO VẬT NGHI NGỜ LÀ BOM MÌN, VẬT NỔ CHƯA NỔ.**"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "f7760fc5-2428-490b-8696-3681b72acb9e": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n    Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n    📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n    • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n    • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      },
+      {
+        "role": "user",
+        "content": "ở trên cánh đồng A gần hồ nước"
+      },
+      {
+        "role": "assistant",
+        "content": "Dựa trên thông tin tra cứu được cung cấp, không có bất kỳ thông tin cụ thể nào về địa điểm \"cánh đồng A gần hồ nước\" liên quan đến tình trạng ô nhiễm bom mìn, vật nổ.\n\nThông tin tra cứu chỉ đề cập đến các vấn đề chung sau:\n*   **Tình hình chung:** Việt Nam vẫn còn trên 6,1 triệu héc-ta diện tích bị ô nhiễm bom mìn, vật nổ, chiếm 18,82% diện tích đất cả nước.\n*   **Nỗ lực quốc gia:** Việt Nam đã và đang nỗ lực làm sạch các khu vực bị ô nhiễm, chi hàng nghìn tỷ đồng mỗi năm và kêu gọi sự hỗ trợ từ cộng đồng quốc tế.\n*   **Hoàn thành khảo sát:** Năm 2018, Việt Nam đã hoàn thành điều tra, khảo sát, lập bản đồ ô nhiễm bom mìn, vật nổ trên phạm vi toàn quốc và công bố số liệu.\n\nĐể có thông tin chính xác về một địa điểm cụ thể như \"cánh đồng A gần hồ nước\", bạn cần cung cấp tên địa phương (tỉnh, huyện, xã) hoặc tọa độ cụ thể.\n\n**Để tìm kiếm thông tin về bom mìn, vật nổ tại một địa điểm cụ thể ở Việt Nam, bạn nên:**\n1.  **Liên hệ chính quyền địa phương:** Ủy ban nhân dân xã/phường, huyện/quận nơi địa điểm đó tọa lạc.\n2.  **Liên hệ Bộ Chỉ huy Quân sự tỉnh/thành phố:** Đây là cơ quan có thẩm quyền quản lý và nắm giữ thông tin về bom mìn, vật nổ tại địa phương.\n3.  **Liên hệ Trung tâm Hành động bom mìn quốc gia Việt Nam (VNMAC):** Đây là cơ quan đầu mối quốc gia về khắc phục hậu quả bom mìn sau chiến tranh, có thể cung cấp thông tin hoặc hướng dẫn bạn đến nguồn thông tin chính xác.\n\nHiện tại, không có số hotline chung cho từng \"cánh đồng\" hay \"hồ nước\" cụ thể. Các số điện thoại khẩn cấp thường là của chính quyền địa phương hoặc các đơn vị quân sự phụ trách khu vực."
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "eb74e242-c4cd-4528-a8be-b6ea39985351": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n    Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n    📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n    • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n    • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      },
+      {
+        "role": "user",
+        "content": "ở cánh đồng cạnh hồ nước"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn,\n\nVới vai trò là chuyên gia hướng dẫn an toàn về bom mìn và vật nổ chưa nổ (UXO), tôi hiểu rằng việc phát hiện vật thể lạ, nghi ngờ là bom mìn hoặc vật nổ chưa nổ ở những khu vực như cánh đồng cạnh hồ nước là một tình huống rất nguy hiểm. Việt Nam vẫn còn một diện tích đất rất lớn bị ô nhiễm bom mìn sau chiến tranh, và bất kỳ vật thể lạ nào cũng cần được xử lý hết sức cẩn trọng.\n\nĐây là các bước bạn cần thực hiện để đảm bảo an toàn cho bản thân và cộng đồng:\n\n1.  **TUYỆT ĐỐI KHÔNG CHẠM VÀO VẬT NGHI NGỜ!**\n    *   Đây là nguyên tắc quan trọng nhất. Bom mìn và vật nổ chưa nổ có thể cực kỳ nguy hiểm và không ổn định. Chỉ một tác động nhỏ, rung lắc, hoặc thay đổi nhiệt độ cũng có thể kích hoạt chúng.\n    *   Không cố gắng di chuyển, đào bới, ném, hay làm bất cứ điều gì với vật thể đó.\n    *   Không cho phép người khác, đặc biệt là trẻ em, đến gần hoặc chạm vào.\n\n2.  **Giữ khoảng cách an toàn:**\n    *   Ngay lập tức lùi lại và giữ một khoảng cách an toàn tối thiểu (ít nhất 50-100 mét, hoặc xa hơn nếu có thể).\n    *   Nếu bạn đang ở trong khu vực có thể có nhiều vật nổ, hãy di chuyển cẩn thận, quan sát xung quanh và tránh giẫm đạp lên những khu vực chưa được kiểm tra.\n\n3.  **Đánh dấu khu vực (nếu có thể an toàn):**\n    *   Nếu bạn có thể làm điều này mà không cần đến gần vật thể, hãy tìm cách đánh dấu khu vực nguy hiểm bằng những vật dụng có sẵn như cành cây, đá, hoặc quần áo sáng màu để cảnh báo người khác. **Tuyệt đối không đến gần vật thể để đánh dấu.**\n\n4.  **Liên hệ ngay với cơ quan chức năng:**\n    *   Đây là bước cực kỳ quan trọng. Hãy gọi ngay cho cơ quan chức năng tại địa phương để báo cáo về vật thể nghi ngờ.\n    *   Cung cấp thông tin chi tiết về vị trí (cánh đồng cạnh hồ nước, các mốc địa lý dễ nhận biết), mô tả vật thể (kích thước, hình dạng, màu sắc nếu có thể nhìn rõ từ xa).\n    *   **Số hotline khẩn cấp của cơ quan chức năng địa phương** (ví dụ: Công an xã/phường, Ban Chỉ huy Quân sự địa phương, hoặc các tổ chức rà phá bom mìn chuyên trách) là nơi bạn cần liên hệ. Hãy tìm số điện thoại của họ và gọi ngay lập tức.\n\n5.  **Cảnh báo những người xung quanh:**\n    *   Nếu có người khác ở gần đó, hãy cảnh báo họ về nguy hiểm và yêu cầu họ giữ khoảng cách an toàn cho đến khi lực lượng chuyên trách đến xử lý.\n\nHãy nhớ rằng, việc khắc phục hậu quả bom mìn là một công việc phức tạp và nguy hiểm, đòi hỏi chuyên môn cao. Chỉ có những đội ngũ chuyên nghiệp, được đào tạo bài bản mới có thể xử lý an toàn các vật nổ này.\n\n**Vì sự an toàn của bạn và cộng đồng, hãy luôn nhớ: KHÔNG CHẠM VÀO VẬT NGHI NGỜ và GỌI NGAY CHO CƠ QUAN CHỨC NĂNG ĐỊA PHƯƠNG!**"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "13381b77-b63f-4dce-9a07-2684a7146448": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi nhìn thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n            Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n            📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n            • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n            • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      },
+      {
+        "role": "user",
+        "content": "ở cánh đồng cạnh nhà máy nước"
+      },
+      {
+        "role": "assistant",
+        "content": "Cảm ơn bạn đã cung cấp thông tin địa điểm!\n\n    Chúng tôi đã ghi nhận địa điểm: **\"ở cánh đồng cạnh nhà máy nước\"**\n\n    Đội ngũ chuyên gia sẽ đến địa điểm bạn cung cấp để xác minh và xử lý. Vui lòng giữ khoảng cách an toàn và không tự ý xử lý.\n\n    📞 Nếu có thông tin khẩn cấp, hãy gọi ngay:\n    • MAG Vietnam: 0914 555 247 / 0913 888 27\n    • Quân đội địa phương: 113\n    • Công an: 113"
+      },
+      {
+        "role": "user",
+        "content": "bom là gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Cảm ơn bạn đã cung cấp thông tin địa điểm!\n\n    Chúng tôi đã ghi nhận địa điểm: **\"bom là gì\"**\n\n    Đội ngũ chuyên gia sẽ đến địa điểm bạn cung cấp để xác minh và xử lý. Vui lòng giữ khoảng cách an toàn và không tự ý xử lý.\n\n    📞 Nếu có thông tin khẩn cấp, hãy gọi ngay:\n    • MAG Vietnam: 0914 555 247 / 0913 888 27\n    • Quân đội địa phương: 113\n    • Công an: 113"
+      },
+      {
+        "role": "user",
+        "content": "khi thấy một quả bom thì tôi phải làm gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n            Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n            📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n            • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n            • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "8c3a199c-709e-44fb-88de-ac466428bad7": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "bom là gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Bom là một thiết bị chứa vật liệu nổ, được thiết kế để phát nổ và gây ra sát thương, phá hủy hoặc làm mất khả năng hoạt động."
+      },
+      {
+        "role": "user",
+        "content": "mìn là gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Mìn là một loại thiết bị nổ được thiết kế để đặt ẩn dưới hoặc trên mặt đất, kích nổ khi có người hoặc phương tiện tiếp xúc hoặc đi qua, gây sát thương hoặc phá hủy."
+      },
+      {
+        "role": "user",
+        "content": "tôi thấy một quả bom thì cần làm gì"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n            Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n            📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n            • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n            • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      },
+      {
+        "role": "user",
+        "content": "quả bom ở trên đồng ruộng cạnh nhà máy nước"
+      },
+      {
+        "role": "assistant",
+        "content": "Cảm ơn bạn đã cung cấp thông tin địa điểm!\n\n    Chúng tôi đã ghi nhận địa điểm: **\"quả bom ở trên đồng ruộng cạnh nhà máy nước\"**\n\n    Đội ngũ chuyên gia sẽ đến địa điểm bạn cung cấp để xác minh và xử lý. Vui lòng giữ khoảng cách an toàn và không tự ý xử lý.\n\n    📞 Nếu có thông tin khẩn cấp, hãy gọi ngay:\n    • MAG Vietnam: 0914 555 247 / 0913 888 27\n    • Quân đội địa phương: 113\n    • Công an: 113"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
+  },
+  "7751741f-dcdc-4a00-9525-95b31a3b3856": {
+    "chat_history": [
+      {
+        "role": "user",
+        "content": "tôi thấy một quả bom"
+      },
+      {
+        "role": "assistant",
+        "content": "Nếu bạn nhìn thấy một quả bom trên đường, tuyệt đối không lại gần, không chạm vào và giữ khoảng cách an toàn.\n\n                        Hãy báo ngay cho chính quyền địa phương gần nhất (công an, quân đội hoặc ủy ban nhân dân xã/phường) để họ có biện pháp xử lý kịp thời và đảm bảo an toàn cho mọi người.\n\n                        📍 **Bạn có thể gửi địa điểm chính xác bằng cách:**\n                        • Click vào bản đồ bên dưới để đánh dấu vị trí bạn nhìn thấy quả bom\n                        • Hoặc mô tả địa điểm chi tiết trong phần chat"
+      },
+      {
+        "role": "user",
+        "content": "quả bom ở trên đồng cạnh nhà máy nước"
+      },
+      {
+        "role": "assistant",
+        "content": "Cảm ơn bạn đã cung cấp thông tin địa điểm!\n\n                            Chúng tôi đã ghi nhận địa điểm: **\"quả bom ở trên đồng cạnh nhà máy nước\"**\n\n                            Đội ngũ chuyên gia sẽ đến địa điểm bạn cung cấp để xác minh và xử lý. Vui lòng giữ khoảng cách an toàn và không tự ý xử lý.\n\n                            📞 Nếu có thông tin khẩn cấp, hãy gọi ngay:\n                            • MAG Vietnam: 0914 555 247 / 0913 888 27\n                            • Quân đội địa phương: 113\n                            • Công an: 113"
+      },
+      {
+        "role": "user",
+        "content": "📸 Đã tải lên ảnh: image_015.jpg"
+      },
+      {
+        "role": "assistant",
+        "content": "📊 **Kết quả phân tích ảnh:**\n- Bomb (độ tin cậy: 0.89)\n"
+      },
+      {
+        "role": "user",
+        "content": "số điện thoại khẩn cấp mag tại quảng bình báo cáo về bom"
+      },
+      {
+        "role": "assistant",
+        "content": "📞 Số hotline xử lý bom mìn tại Quảng Bình là: 1800 1741"
+      }
+    ],
+    "language": "vi",
+    "show_report_map": false,
+    "last_intent": null,
+    "analysis_done": false,
+    "detection_result": null
   }
 }

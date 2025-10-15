@@ -5,14 +5,17 @@ from typing import List
 from datetime import datetime
 import json
 
-
+# Import model, CRUD, DB connection
 from database import models, crud, connection
+# Import chức năng xác thực admin
 from utils.auth import create_access_token, get_current_admin
+# Import schema cho request/response
 from app.schemas import AdminLoginRequest, AdminLoginResponse, UXOReportCreate, UXOReportResponse, UXODetectionResponse, UXODetectionCreate
 
-# 👇 import YOLO detector
+# import YOLO detector
 from computer_vision.yolov8_detector import UXODetector
 
+# Khởi tạo router cho nhóm API /admin
 router = APIRouter(prefix="/admin", tags=["Admin"])
 
 # Khởi tạo detector 1 lần (load model khi start server, không load lại mỗi request)
@@ -24,13 +27,16 @@ detector = UXODetector("computer_vision/weights/best.pt")
 @router.post("/login", response_model=AdminLoginResponse)
 def login_admin(req: AdminLoginRequest, db: Session = Depends(connection.get_db)):
     """
-    Đăng nhập Admin, trả về access token
+    Đăng nhập Admin → kiểm tra email + password
+    Nếu đúng → tạo JWT token để frontend dùng xác thực.
     """
+    # Kiểm tra thông tin đăng nhập trong database
     admin = crud.authenticate_admin(db, email=req.email, password=req.password)
     if not admin:
         raise HTTPException(status_code=401, detail="❌ Email hoặc mật khẩu không đúng")
-
+    # Tạo JWT token có payload là ID admin
     token = create_access_token(data={"sub": str(admin.id)})
+    # Trả về access token cho client
     return AdminLoginResponse(access_token=token)
 
 # ================================
@@ -47,12 +53,13 @@ async def detect_uxo_api(
     Nhận ảnh từ frontend, chạy YOLOv8 detect, TRẢ VỀ VÀ LƯU KẾT QUẢ VÀO DATABASE
     """
     try:
+        # Đọc nội dung ảnh dưới dạng bytes
         image_bytes = await file.read()
         
         # Chạy detection
         detections = detector.detect_from_bytes(image_bytes, confidence_threshold=confidence_threshold)
         
-        # ✅ LƯU KẾT QUẢ VÀO DATABASE
+        # LƯU KẾT QUẢ VÀO DATABASE
         detection_record = models.UXODetection(
             filename=file.filename,
             session_id=session_id,
@@ -69,7 +76,7 @@ async def detect_uxo_api(
         if detections:
             warning_message = "⚠️ Cảnh báo: Có vật thể nghi ngờ UXO!"
             
-            # ✅ THÊM: Lưu log detection nếu có vật thể nguy hiểm
+            # Nếu có detection có confidence > 0.5 → tạo log cảnh báo
             if any(detection['confidence'] > 0.5 for detection in detections):
                 detection_log = models.ImageDetectionLog(
                     detection_id=detection_record.id,
@@ -82,7 +89,9 @@ async def detect_uxo_api(
                 db.commit()
         else:
             warning_message = "✅ Không phát hiện vật thể nguy hiểm."
-        
+        # -----------------------------
+        # Trả kết quả cho frontend
+        # -----------------------------
         return {
             "detection_id": detection_record.id,  # Trả về ID của detection record
             "detections": detections,
@@ -103,7 +112,7 @@ def view_all_chatlogs(skip: int = 0, limit: int = 100,
                       db: Session = Depends(connection.get_db),
                       current_admin=Depends(get_current_admin)):
     """
-    Lấy danh sách chat logs cho admin
+    Chỉ Admin được xem toàn bộ chat logs (đã được xác thực bằng JWT).
     """
     logs = crud.get_all_chatlogs(db, skip=skip, limit=limit)
     return logs
@@ -132,7 +141,7 @@ async def log_chat_message(
     if not session_id or not message or not response_text:
         raise HTTPException(status_code=400, detail="❌ Thiếu trường dữ liệu cần thiết")
 
-    # Lưu vào DB
+    # Ghi vào bảng ChatLog
     db_chat = models.ChatLog(
         session_id=session_id,
         message=message,
@@ -153,6 +162,9 @@ def create_report(
     req: UXOReportCreate,
     db: Session = Depends(connection.get_db)
 ):
+    """
+    Người dùng gửi báo cáo vị trí nghi có UXO.
+    """
     db_report = models.UXOReport(
         latitude=req.latitude,
         longitude=req.longitude,
@@ -172,6 +184,7 @@ def get_all_reports(
     db: Session = Depends(connection.get_db),
     current_admin=Depends(get_current_admin)  # chỉ admin mới được xem
 ):
+    """Lấy toàn bộ kết quả phát hiện ảnh (chỉ admin có quyền)."""
     return db.query(models.UXOReport).all()
 
 # ========================
@@ -187,12 +200,18 @@ def read_all_detections_admin(
     """Lấy tất cả detections - chỉ admin"""
     return db.query(models.UXODetection).all()
 
+# ================================
+# LẤY ẢNH DETECTION GỐC
+# ================================
 @router.get("/detections/{report_id}")
 def get_detection_image(
     report_id: int,
     db: Session = Depends(connection.get_db),
     current_admin=Depends(get_current_admin)
 ):
+    """
+    Trả lại ảnh binary của bản ghi detection theo ID.
+    """
     detection = db.query(models.UXODetection).filter(models.UXODetection.id == report_id).first()
     if not detection or not detection.image_data:
         raise HTTPException(status_code=404, detail="Image not found")
@@ -204,6 +223,9 @@ def get_detection_image(
         media_type = "image/png"  
     return Response(content=detection.image_data, media_type=media_type)
 
+# ================================
+# USER: LẤY DANH SÁCH DETECTION CỦA MÌNH
+# ================================
 @router.get("/detections/", response_model=List[UXODetectionResponse])
 def read_user_detections(
     session_id: str,

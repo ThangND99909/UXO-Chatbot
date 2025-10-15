@@ -19,37 +19,47 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 # ========================
-# Context Memory (simple)
+# Bộ nhớ ngữ cảnh đơn giản (Context Memory)
 # ========================
 class ContextMemory:
+    """
+    Lưu lại intent và entities cuối cùng mà người dùng đã nói.
+    Dùng để giúp chatbot hiểu được mạch hội thoại (ngữ cảnh).
+    """
     def __init__(self):
         self.last_intent = None
         self.last_entities = {}
 
     def update(self, intent: str, entities: Dict[str, Any]):
+        #Cập nhật thông tin mới nếu có
         if intent and intent != "unknown":
             self.last_intent = intent
         if entities:
             self.last_entities = entities
 
     def get_context(self) -> Dict[str, Any]:
+        #Trả về ngữ cảnh (intent + entities) gần nhất
         return {
             "last_intent": self.last_intent,
             "last_entities": self.last_entities,
         }
     
 # ========================
-# Helpers (NEW)
+# Helpers (HÀM HỖ TRỢ TIỀN XỬ LÝ)
 # ========================
 def _strip_accents(s: str) -> str:
-    """Bỏ dấu tiếng Việt để so khớp keyword dễ hơn."""
+    """Bỏ dấu tiếng Việt để so khớp keyword dễ hơn.(ví dụ: 'đà nẵng' = 'da nang')"""
     if not isinstance(s, str):
         return ""
     return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn")
 
 def _contains_any(haystack: str, needles) -> bool:
+    """Kiểm tra xem chuỗi có chứa bất kỳ từ khóa nào trong danh sách không."""
     return any(n in haystack for n in needles)
 
+# ----------------------------
+# Danh sách từ khóa phục vụ nhận diện intent
+# ----------------------------
 # Các từ gợi ý câu hỏi KHÔNG phải hotline (để không ép về hotline)
 QUESTION_TRIGGERS = [
     "ở đâu", "o dau", "là gì", "la gi", "giới thiệu", "gioi thieu",
@@ -75,12 +85,12 @@ LOCATION_TOKENS = [
     # có thể bổ sung thêm...
 ]
 
-# 🔹 Từ khoá UXO
+# Từ khóa liên quan UXO (vật nổ)
 UXO_KEYWORDS = [
     "bom", "mìn", "lựu đạn", "uxo", "vật nổ"
 ]
 
-# 🔹 Cụm từ báo cáo (để phân biệt với hỏi thông tin)
+# Cụm từ báo cáo (người dùng phát hiện vật nổ)
 REPORT_TRIGGERS = [
     "thấy", "nhìn thấy", "gặp", "phát hiện", "có một", "xuất hiện", "trước mặt"
 ]
@@ -95,14 +105,15 @@ class NLUProcessor:
         """
         self.llm = llm or GeminiLLM()
         self.memory_manager = memory_manager
-        self.memory = ContextMemory()  # ✅ thêm bộ nhớ ngữ cảnh
+        self.memory = ContextMemory()  # thêm bộ nhớ ngữ cảnh
+        # Tạo chain để phát hiện intent
         self.intent_chain = LLMChain(
             llm=self.llm,
             prompt=intent_prompt,
             output_parser=NLUOutputParser(),
             output_key="answer"
         )
-
+        # Tạo chain để trích xuất thực thể
         self.entity_chain = LLMChain(
             llm=self.llm,
             prompt=entity_prompt,
@@ -111,7 +122,7 @@ class NLUProcessor:
         )
 
     # ----------------------------
-    # Entity Extraction
+    # Entity Extraction(Thiết lập lại prompt trích xuất thực thể)
     # ----------------------------
     def setup_entity_extraction(self):
         entity_template = """
@@ -133,7 +144,7 @@ class NLUProcessor:
             }}
         }}
         """
-
+        # Gắn prompt vào LLMChain
         self.entity_prompt = PromptTemplate(
             template=entity_template,
             input_variables=["question", "language"],
@@ -147,11 +158,11 @@ class NLUProcessor:
         )
 
     # ----------------------------
-    # API: Detect Intent
+    # API: Detect Intent(Hàm lấy tin nhắn AI gần nhất trong session)
     # ----------------------------
 
     def _get_last_assistant_message(self, session_id: str) -> str:
-        """🔹 NEW: lấy tin nhắn assistant gần nhất (nếu có) để biết có đang hỏi xin địa danh hotline không."""
+        """lấy tin nhắn assistant gần nhất (nếu có) để biết có đang hỏi xin địa danh hotline không."""
         if not self.memory_manager:
             return ""
         try:
@@ -161,13 +172,21 @@ class NLUProcessor:
                 if hasattr(m, "type") and m.type != "human":
                     return getattr(m, "content", "") or ""
         except Exception as e:
-            logger.debug(f"⚠️ Không lấy được last assistant message: {e}")
+            logger.debug(f"Không lấy được last assistant message: {e}")
         return ""
 
+    #Phát hiện ý định (Intent Detection)
     def detect_intent(self, question: str, language: str = "vi", session_id: str = "default") -> Dict[str, Any]:
+        """
+        Dự đoán intent của người dùng:
+        - Gọi LLM chain
+        - Dùng memory_manager để lấy last_intent, last_question
+        """
         try:
+            #Gọi LLMChain để sinh kết quả thô
             raw = self.intent_chain.invoke({"question": question, "language": language})
             output_text = raw["answer"] if isinstance(raw, dict) and "answer" in raw else raw
+            #Nếu là dict → chuyển sang JSON string
             if isinstance(output_text, dict):
                 output_text = json.dumps(output_text, ensure_ascii=False)
             parsed = self.intent_chain.output_parser.parse(output_text)
@@ -176,7 +195,7 @@ class NLUProcessor:
             confidence = float(parsed.get("confidence", 0.0))
             enriched_text = None
 
-            # 🔹 Context-based refinement (STRICT)
+            #Lấy ngữ cảnh trước đó (nếu có)
             last_intent, last_question = "", ""
             awaiting_hotline_location = False
 
@@ -197,23 +216,23 @@ class NLUProcessor:
             is_short = len(words) <= 4
 
             # -------------------------------
-            # 🔹 Phát hiện user báo nhìn thấy UXO (report_bomb)
+            #Phát hiện user báo nhìn thấy UXO (report_bomb)
             # -------------------------------
             has_uxo_kw = _contains_any(t_lc, UXO_KEYWORDS) or _contains_any(t_ascii, UXO_KEYWORDS)
             has_report_kw = _contains_any(t_lc, REPORT_TRIGGERS) or _contains_any(t_ascii, REPORT_TRIGGERS)
 
             awaiting_uxo_location = False
             if has_uxo_kw and has_report_kw:
-                logger.debug("⚡ User báo cáo phát hiện UXO → ép intent = report_bomb")
+                logger.debug("User báo cáo phát hiện UXO → ép intent = report_bomb")
                 intent = "report_bomb"
                 enriched_text = question
                 awaiting_uxo_location = True
-
+            #Phát hiện hotline / câu hỏi thông tin
             has_question_word = _contains_any(t_lc, QUESTION_TRIGGERS) or _contains_any(t_ascii, QUESTION_TRIGGERS)
             has_hotline_kw = _contains_any(t_lc, HOTLINE_KEYWORDS) or _contains_any(t_ascii, HOTLINE_KEYWORDS)
             has_location = any(tok in t_lc or tok in t_ascii for tok in LOCATION_TOKENS)
 
-            # 🎯 QUY TẮC MỚI (fix bug bạn gặp):
+           
             # Chỉ ép về ask_hotline khi:
             #  - ĐANG CHỜ địa danh cho hotline (bot vừa hỏi khu vực) HOẶC last_intent là ask_hotline
             #  - Câu rất ngắn & CHỈ là địa danh (không có từ nghi vấn/miêu tả)
@@ -225,17 +244,17 @@ class NLUProcessor:
                 and not has_hotline_kw
                 and (awaiting_hotline_location or last_intent == "ask_hotline")
             ):
-                logger.debug("⚡ Follow-up hotline hợp lệ: ép intent = ask_hotline")
+                logger.debug("Follow-up hotline hợp lệ: ép intent = ask_hotline")
                 intent = "ask_hotline"
                 enriched_text = f"{last_question} {question}" if last_question else f"hotline {question}"
             else:
                 # Nếu câu hỏi có từ nghi vấn như 'ở đâu', 'là gì'... thì KHÔNG ép hotline
-                logger.debug("ℹ️ Không ép intent về hotline (giữ theo LLM hoặc suy luận thường).")
+                logger.debug("Không ép intent về hotline (giữ theo LLM hoặc suy luận thường).")
 
             # Trường hợp câu cực ngắn (<=2 từ) → enrich text để RAG hiểu hơn
             if not enriched_text and last_question and len(words) <= 2:
                 enriched_text = f"{last_question} {question}"
-                logger.debug(f"🧩 Enriched text (câu cực ngắn): {enriched_text}")
+                logger.debug(f"Enriched text (câu cực ngắn): {enriched_text}")
 
             return {
                 "intent": intent,
@@ -248,7 +267,7 @@ class NLUProcessor:
             }
 
         except Exception as e:
-            logger.error(f"❌ Intent detection lỗi: {e}")
+            logger.error(f"Intent detection lỗi: {e}")
             return {
                 "intent": "unknown",
                 "confidence": 0.0,
@@ -258,9 +277,15 @@ class NLUProcessor:
                 "enriched_text": None
             }
     # ----------------------------
-    # API: Extract Entities
+    # API: Trích xuất thực thể(Extract Entities)
     # ----------------------------
     def extract_entities(self, question: str, language: str = "vi") -> Dict[str, Any]:
+        """
+        Gọi LLM để phân tích câu hỏi và trích xuất các thực thể như:
+        - location
+        - uxo_type
+        - action
+        """
         try:
             result = self.entity_chain.invoke({"question": question, "language": language})
             output_text = result["answer"] if isinstance(result, dict) and "answer" in result else result
@@ -273,12 +298,18 @@ class NLUProcessor:
                 )
             }
         except Exception as e:
-            logger.error(f"❌ Entity extraction lỗi: {e}")
+            logger.error(f"Entity extraction lỗi: {e}")
             return {"entities": {"location": [], "uxo_type": [], "action": []}}
     # ----------------------------
-    # API: Full NLU Pipeline
+    # API: Chạy toàn bộ pipeline NLU(Full NLU Pipeline)
     # ----------------------------
     def process_nlu(self, question: str, language: str = "vi", session_id: str = "default") -> Dict[str, Any]:
+        """
+        Gọi lần lượt:
+        - detect_intent → xác định ý định
+        - extract_entities → trích xuất thực thể
+        Gộp kết quả lại thành output duy nhất.
+        """
         intent_result = self.detect_intent(question, language, session_id)
         entity_result = self.extract_entities(question, language)
 
@@ -292,5 +323,5 @@ class NLUProcessor:
             "awaiting_uxo_location": intent_result.get("awaiting_uxo_location", False),
             "enriched_text": intent_result.get("enriched_text")
         }
-        logger.debug(f"✅ Final NLU output: {merged}")
+        logger.debug(f"Final NLU output: {merged}")
         return merged

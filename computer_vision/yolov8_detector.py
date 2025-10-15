@@ -22,23 +22,24 @@ class UXODetector:
         - Nếu không truyền model_path thì sẽ lấy từ biến môi trường MODEL_PATH
         - Nếu vẫn không có thì fallback về ./weights/best.pt
         """
+        # Lấy đường dẫn model từ biến môi trường hoặc mặc định
         if model_path is None:
             model_path = os.getenv(
                 "MODEL_PATH",
                 os.path.join(os.path.dirname(__file__), "weights", "best.pt")
             )
-
+        # Kiểm tra model có tồn tại không
         if not os.path.exists(model_path):
-            raise FileNotFoundError(f"❌ Model file not found: {model_path}")
+            raise FileNotFoundError(f"Model file not found: {model_path}")
 
         try:
-            logger.info(f"📂 Loading YOLO model from: {model_path}")
+            logger.info(f"Loading YOLO model from: {model_path}")
             self.model = YOLO(model_path)  # Load model YOLOv8
         except Exception as e:
-            logger.error(f"❌ Failed to load YOLO model: {e}")
+            logger.error(f"Failed to load YOLO model: {e}")
             raise
 
-        # ---------------- Class names và màu vẽ ----------------
+        # Danh sách class (loại vật nổ) mà mô hình có thể nhận dạng
         self.class_names = [
             "Ammunition",
             "Bomb",
@@ -62,9 +63,9 @@ class UXODetector:
     def detect(self, image_path: str, confidence_threshold: float = 0.5) -> List[Dict[str, Any]]:
         """Chạy detection trên ảnh từ đường dẫn và trả về danh sách dict kết quả."""
         if not os.path.exists(image_path):
-            raise FileNotFoundError(f"❌ Image file not found: {image_path}")
+            raise FileNotFoundError(f"Image file not found: {image_path}")
 
-        logger.info(f"🔍 Running detection on: {image_path}")
+        logger.info(f"Running detection on: {image_path}")
         results = self.model(image_path)  # Chạy YOLO detect
 
         return self._parse_results(results, confidence_threshold)  # Chuyển kết quả thành dict
@@ -72,17 +73,17 @@ class UXODetector:
     # ---------------- Detection từ bytes ----------------
     def detect_from_bytes(self, image_bytes: bytes, confidence_threshold: float = 0.5) -> List[Dict[str, Any]]:
         """
-        Chạy detection trực tiếp từ bytes ảnh.
+        Chạy detection trực tiếp từ bytes ảnh (thường dùng khi người dùng upload file qua API).
         Bao gồm kiểm tra lỗi và fallback lưu file tạm nếu decode thất bại.
         """
         try:
             if not image_bytes or len(image_bytes) == 0:
-                raise ValueError("❌ Uploaded file is empty")
+                raise ValueError("Uploaded file is empty")
 
-            # Chuyển bytes sang np.ndarray
+            # # Chuyển bytes thành mảng numpy để xử lý bằng OpenCV
             image_array = np.frombuffer(image_bytes, np.uint8)
             if image_array.size == 0:
-                raise ValueError("❌ Image bytes are empty or invalid")
+                raise ValueError("Image bytes are empty or invalid")
 
             # Giải mã ảnh bằng OpenCV
             image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
@@ -94,38 +95,51 @@ class UXODetector:
                     f.write(image_bytes)
                 image = cv2.imread(tmp_path)
                 if image is None:
-                    raise ValueError("❌ Could not decode image even after saving temp file")
+                    raise ValueError("Could not decode image even after saving temp file")
                 else:
-                    logger.info(f"⚠️ Decoded image via temp file: {tmp_path}")
+                    logger.info(f"Decoded image via temp file: {tmp_path}")
 
             # Chạy YOLO detect
             results = self.model.predict(image)
+            # Parse kết quả thành list dict
             detections = self._parse_results(results, confidence_threshold)
 
-            logger.info(f"✅ detect_from_bytes: Found {len(detections)} objects")
+            logger.info(f"detect_from_bytes: Found {len(detections)} objects")
             return detections
 
         except Exception as e:
-            logger.error(f"❌ Error in detect_from_bytes: {e}")
+            logger.error(f"Error in detect_from_bytes: {e}")
             return []
 
     # ---------------- Parse YOLO results ----------------
     def _parse_results(self, results, confidence_threshold: float) -> List[Dict[str, Any]]:
-        """Chuyển YOLO results thành list dict với class, bbox, confidence, area,..."""
+        """
+        Chuyển kết quả YOLO thô sang danh sách các dict:
+        {
+            "class": tên vật thể,
+            "confidence": độ tin cậy,
+            "bbox": [x1, y1, x2, y2],
+            "width": chiều rộng bbox,
+            "height": chiều cao bbox,
+            "area": diện tích bbox
+        }
+        """
         detections = []
         for result in results:
             for box in result.boxes:
+                # Lấy độ tin cậy (confidence)
                 confidence = float(box.conf[0])
                 if confidence < confidence_threshold:
-                    continue
-
+                    continue # Bỏ qua các detection có độ tin cậy thấp
+                # Lấy ID và tên class
                 class_id = int(box.cls[0])
                 class_name = (
                     self.class_names[class_id] if class_id < len(self.class_names) else "unknown"
                 )
+                # Lấy tọa độ bbox (x1, y1, x2, y2)
                 x1, y1, x2, y2 = map(int, box.xyxy[0].tolist())
                 width, height = x2 - x1, y2 - y1
-
+                # Ghi kết quả
                 detections.append({
                     "class": class_name,
                     "confidence": round(confidence, 3),
@@ -135,33 +149,37 @@ class UXODetector:
                     "area": width * height
                 })
 
-        logger.info(f"✅ Found {len(detections)} detections")
+        logger.info(f"Found {len(detections)} detections")
         return detections
 
-    # ---------------- Vẽ bbox từ file path ----------------
+    # ---------------- Vẽ bounding box từ file ảnh ----------------
     def draw_detections(self, image_path: str, output_path: str,
                         confidence_threshold: float = 0.5,
                         save_conf: bool = True, save_crop: bool = False) -> List[Dict[str, Any]]:
-        """Vẽ bounding box và lưu ảnh kết quả."""
+        """
+        Vẽ bounding box + label (tên + độ tin cậy) lên ảnh.
+        Lưu ảnh kết quả ra file output_path.
+        """
         if not os.path.exists(image_path):
-            raise FileNotFoundError(f"❌ Image file not found: {image_path}")
-
+            raise FileNotFoundError(f"Image file not found: {image_path}")
+        # Đọc ảnh đầu vào
         image = cv2.imread(image_path)
         if image is None:
-            raise ValueError("❌ Could not read image file")
+            raise ValueError("Could not read image file")
 
-        # Chạy detect
+        # Chạy phát hiện đối tượng
         detections = self.detect(image_path, confidence_threshold)
 
         # Vẽ bbox và label
         for detection in detections:
+            # Gắn label gồm tên class và confidence
             x1, y1, x2, y2 = detection["bbox"]
             label = f"{detection['class']} {detection['confidence']:.2f}" if save_conf else detection['class']
             color = self.colors.get(detection["class"], (0, 255, 0))
-
+            # Vẽ khung chữ nhật (bbox)
             cv2.rectangle(image, (x1, y1), (x2, y2), color, 3)  # Vẽ bbox
 
-            # Vẽ label background
+            # Vẽ nền label và chữ
             (label_width, label_height), baseline = cv2.getTextSize(
                 label, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2
             )
@@ -178,31 +196,33 @@ class UXODetector:
                 crop_path = os.path.join(crop_dir, f"{detection['class']}_{x1}_{y1}.jpg")
                 cv2.imwrite(crop_path, crop)
 
-        # Lưu ảnh kết quả
+        # Lưu ảnh kết quả có bbox
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         cv2.imwrite(output_path, image)
-        logger.info(f"💾 Saved annotated image: {output_path}")
+        logger.info(f"Saved annotated image: {output_path}")
         return detections
 
-    # ---------------- Vẽ bbox từ bytes ----------------
+    # ---------------- Vẽ bbox từ bytes (upload trực tiếp) ----------------
     def draw_detections_from_bytes(
         self, image_bytes: bytes, output_path: str,
         confidence_threshold: float = 0.5,
         save_conf: bool = True, save_crop: bool = False
     ) -> List[Dict[str, Any]]:
         """
+        Giống draw_detections nhưng nhận đầu vào là ảnh bytes.
+        Dùng cho API upload ảnh từ frontend.
         Vẽ bounding box trực tiếp từ bytes ảnh và lưu ảnh kết quả.
         Trả về danh sách detections.
         Bao gồm kiểm tra lỗi và fallback lưu file tạm nếu decode thất bại.
         """
         try:
             if not image_bytes or len(image_bytes) == 0:
-                raise ValueError("❌ Uploaded file is empty")
+                raise ValueError("Uploaded file is empty")
 
-            # Chuyển bytes sang np.ndarray
+            # Chuyển bytes → numpy array → ảnh OpenCV
             image_array = np.frombuffer(image_bytes, np.uint8)
             if image_array.size == 0:
-                raise ValueError("❌ Image bytes are empty or invalid")
+                raise ValueError("Image bytes are empty or invalid")
 
             # Giải mã ảnh bằng OpenCV
             image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
@@ -214,9 +234,9 @@ class UXODetector:
                     f.write(image_bytes)
                 image = cv2.imread(tmp_path)
                 if image is None:
-                    raise ValueError("❌ Could not decode image even after saving temp file")
+                    raise ValueError("Could not decode image even after saving temp file")
                 else:
-                    logger.info(f"⚠️ Decoded image via temp file: {tmp_path}")
+                    logger.info(f"Decoded image via temp file: {tmp_path}")
 
             # Chạy YOLO detect
             results = self.model.predict(image)
@@ -246,10 +266,10 @@ class UXODetector:
             # Lưu ảnh kết quả
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
             cv2.imwrite(output_path, image)
-            logger.info(f"💾 Saved annotated image: {output_path}")
+            logger.info(f"Saved annotated image: {output_path}")
 
             return detections
 
         except Exception as e:
-            logger.error(f"❌ Error in draw_detections_from_bytes: {e}")
+            logger.error(f"Error in draw_detections_from_bytes: {e}")
             return []

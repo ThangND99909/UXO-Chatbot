@@ -9,43 +9,50 @@ from data_layer.preprocessor import UXOPreprocessor
 
 class VectorStoreManager:
     def __init__(self, embedding_model="sentence-transformers/all-MiniLM-L6-v2"):
+        # Khởi tạo mô hình embedding để biến văn bản thành vector
         self.embedding_model = HuggingFaceEmbeddings(
             model_name=embedding_model,
             model_kwargs={'device': 'cpu'},
             encode_kwargs={'normalize_embeddings': False}
         )
+        # Lưu trữ ChromaDB và thư mục lưu trữ
         self.vector_store = None
         self.persist_directory = None
 
-    # ✅ Mới: check vector store đã init chưa
+    # Kiểm tra xem vector store đã được khởi tạo hay chưa
     def is_initialized(self) -> bool:
         return self.vector_store is not None
 
-    # ================== CÁC HÀM CŨ ==================
+    # ================== TẠO VECTOR STORE ==================
     def create_vector_store(self, documents, persist_directory="./chroma_db",
                             json_path="data/uxo_full_documents.json",
                             npz_path="data/uxo_embeddings.npz"):
+        """
+        Tạo mới vector store từ danh sách documents, lưu lại DB, JSON và embeddings
+        """
+        # Chuyển các văn bản thành vector và lưu vào Chroma
         self.vector_store = Chroma.from_documents(
             documents=documents,
             embedding=self.embedding_model,
             persist_directory=persist_directory
         )
-        self.vector_store.persist()
-        self.persist_directory = persist_directory
+        self.vector_store.persist() # Lưu DB
+        self.persist_directory = persist_directory # Cập nhật thư mục lưu trữ
 
-        # Lưu JSON
+        # Lưu bản sao văn bản và metadata ra file JSON để tiện debug hoặc backup
         data = [{"content": doc.page_content, "metadata": doc.metadata} for doc in documents]
         os.makedirs(os.path.dirname(json_path), exist_ok=True)
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
-        # Lưu NPZ
+        # Lưu embeddings dạng .npz (numpy nén) để dễ tải lên lại
         texts = [doc.page_content for doc in documents]
         embeddings = self.embedding_model.embed_documents(texts)
         np.savez_compressed(npz_path, embeddings=embeddings, metadata=[doc.metadata for doc in documents])
 
         return self.vector_store
 
+    # Load vector store từ thư mục đã lưu
     def load_vector_store(self, persist_directory="./chroma_db"):
         self.vector_store = Chroma(
             persist_directory=persist_directory,
@@ -53,7 +60,8 @@ class VectorStoreManager:
         )
         self.persist_directory = persist_directory
         return self.vector_store
-
+    
+    # Load hoặc tạo mới vector store
     def load_or_create_vector_store(self, persist_directory="./chroma_db", force_create=False):
         """
         Nếu DB tồn tại → load
@@ -62,28 +70,33 @@ class VectorStoreManager:
         self.persist_directory = persist_directory
         if os.path.exists(persist_directory) and not force_create:
             try:
+                # Load vector store có sẵn
                 self.vector_store = Chroma(
                     persist_directory=persist_directory,
                     embedding_function=self.embedding_model
                 )
-                print(f"✅ Vector store đã load từ {persist_directory}")
+                print(f"Vector store đã load từ {persist_directory}")
             except Exception as e:
-                print(f"⚠️ Không thể load vector store, sẽ tạo mới. Lỗi: {e}")
+                print(f"Không thể load vector store, sẽ tạo mới. Lỗi: {e}")
                 self.vector_store = None
+        # Nếu không có hoặc lỗi → tạo mới
         if self.vector_store is None:
             self.vector_store = Chroma(
                 persist_directory=persist_directory,
                 embedding_function=self.embedding_model
             )
-            print(f"✅ Tạo vector store mới tại {persist_directory}")
+            print(f"Tạo vector store mới tại {persist_directory}")
         return self.vector_store
 
+    # ================== HÀM TRUY VẤN ==================
     def search_similar_documents(self, query, k=5):
+        """Tìm k văn bản giống nhất với câu truy vấn"""
         if self.vector_store is None:
             raise ValueError("Vector store chưa được khởi tạo")
         return self.vector_store.similarity_search(query, k=k)
 
     def as_retriever(self, search_type: str = "similarity", k: int = 5, **kwargs) -> BaseRetriever:
+        """Trả về retriever object (dùng trong RAG pipeline)"""
         if self.vector_store is None:
             raise ValueError("Vector store chưa được khởi tạo. Hãy load hoặc create vector store trước.")
         return self.vector_store.as_retriever(
@@ -93,13 +106,16 @@ class VectorStoreManager:
 
     def get_retriever(self, **kwargs) -> BaseRetriever:
         return self.as_retriever(**kwargs)
-
+    # ================== HÀM QUẢN LÝ ==================
     def similarity_search_with_score(self, query: str, k: int = 5) -> List[tuple]:
+        """Trả về (document, similarity_score)"""
         if self.vector_store is None:
             raise ValueError("Vector store chưa được khởi tạo")
         return self.vector_store.similarity_search_with_score(query, k=k)
 
+    # ================== THÔNG TIN / TRẠNG THÁI ==================
     def get_document_count(self) -> int:
+        """Đếm số lượng document trong DB"""
         if self.vector_store is None:
             return 0
         try:
@@ -109,6 +125,7 @@ class VectorStoreManager:
             return len(self.vector_store.get()['documents']) if self.vector_store.get() else 0
 
     def get_collection_info(self) -> Dict[str, Any]:
+        """Trả về thông tin chung của vector store"""
         if self.vector_store is None:
             return {"status": "not_initialized"}
         info = {
@@ -119,8 +136,9 @@ class VectorStoreManager:
         return info
 
     def add_documents(self, documents: List[Any], persist: bool = True) -> List[str]:
+        # Thêm tài liệu mới vào vector store (nếu chưa có)
         if not self.is_initialized():
-            print("⚠️ Vector store chưa khởi tạo, sẽ tạo mới.")
+            print("Vector store chưa khởi tạo, sẽ tạo mới.")
             self.load_or_create_vector_store()
         ids = self.vector_store.add_documents(documents)
         if persist:
@@ -128,6 +146,7 @@ class VectorStoreManager:
         return ids
 
     def delete_documents(self, ids: List[str], persist: bool = True) -> None:
+        # Xoá tài liệu khỏi vector store theo danh sách IDs
         if self.vector_store is None:
             raise ValueError("Vector store chưa được khởi tạo")
         self.vector_store.delete(ids)
@@ -135,6 +154,7 @@ class VectorStoreManager:
             self.vector_store.persist()
 
     def clear_vector_store(self) -> None:
+        # Xoá toàn bộ dữ liệu trong vector store(don sach DB)
         if self.vector_store is None:
             raise ValueError("Vector store chưa được khởi tạo")
         try:
@@ -146,6 +166,7 @@ class VectorStoreManager:
             print(f"Warning: Could not clear vector store: {e}")
 
     def health_check(self) -> Dict[str, Any]:
+        """Kiểm tra tình trạng vector store (để API / dashboard có thể giám sát)"""
         return {
             "initialized": self.vector_store is not None,
             "document_count": self.get_document_count(),
@@ -153,7 +174,9 @@ class VectorStoreManager:
             "status": "healthy" if self.vector_store else "not_initialized"
         }
 
+    # ================== LOAD TỪ FILE ==================
     def load_documents_from_json(self, filename):
+        """Đọc dữ liệu từ file .json thành danh sách Document"""
         from langchain.schema import Document
         with open(filename, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -167,6 +190,7 @@ class VectorStoreManager:
         return documents
 
     def load_documents_from_jsonl(self, filename):
+        """Đọc dữ liệu từ file .jsonl (mỗi dòng 1 JSON)"""
         from langchain.schema import Document
         documents = []
         with open(filename, 'r', encoding='utf-8') as f:
@@ -181,6 +205,7 @@ class VectorStoreManager:
     def index_from_jsonl(self, jsonl_file, persist_directory="./chroma_db",
                          json_path="data/uxo_full_documents.json",
                          npz_path="data/uxo_embeddings.npz"):
+        """Tạo index từ file JSONL (gồm content + metadata)"""
         documents = self.load_documents_from_jsonl(jsonl_file)
         return self.create_vector_store(
             documents,
@@ -198,6 +223,7 @@ class VectorStoreManager:
         from langchain.schema import Document
         text = ""
 
+        # Tự động chọn cách đọc file dựa trên đuôi
         if file_path.lower().endswith(".pdf"):
             text = preprocessor.read_pdf(file_path)
         elif file_path.lower().endswith(".txt"):
@@ -205,12 +231,13 @@ class VectorStoreManager:
         elif file_path.lower().endswith(".docx"):
             text = preprocessor.read_docx(file_path)
         else:
-            raise ValueError(f"⚠️ Không hỗ trợ định dạng: {file_path}")
+            raise ValueError(f"Không hỗ trợ định dạng: {file_path}")
 
         if not text.strip():
-            print(f"⚠️ File rỗng hoặc không đọc được: {file_path}")
+            print(f"File rỗng hoặc không đọc được: {file_path}")
             return
 
+        # Cắt nhỏ file thành các chunk trước khi nhúng
         doc = Document(page_content=text, metadata={"source": file_path})
         chunks = preprocessor.split_documents([doc], chunk_size=chunk_size, chunk_overlap=chunk_overlap)
 
@@ -219,9 +246,10 @@ class VectorStoreManager:
 
         ids = self.vector_store.add_documents(chunks)
         self.vector_store.persist()
-        print(f"✅ Đã import {len(chunks)} chunks từ {file_path}")
+        print(f"Đã import {len(chunks)} chunks từ {file_path}")
         return ids
 
 # ================== GLOBAL INSTANCE ==================
+# Tạo sẵn một instance toàn cục để các module khác có thể dùng lại
 vector_store_manager = VectorStoreManager()
 vector_store = vector_store_manager

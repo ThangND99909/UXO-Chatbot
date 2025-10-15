@@ -16,11 +16,11 @@ from urllib.parse import urljoin, urlparse
 from typing import List, Set
 import time
 
-# ✅ Bổ sung Selenium
+# Bổ sung Selenium để giả lập trình duyệt thật (chống chặn bot)
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# 🔹 Headers giả lập Chrome để bypass 403
+# Headers giả lập trình duyệt Chrome (giúp tránh bị chặn 403 Forbidden)
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -41,9 +41,9 @@ HEADERS = {
     "Sec-Fetch-Dest": "document",
 }
 
-# ================== BỔ SUNG ==================
+# HÀM TẢI HTML VỚI CƠ CHẾ THỬ LẠI (retry)
 def fetch_html(url: str, retries: int = 3, delay: int = 3) -> str:
-    """Fetch raw HTML with retry + headers"""
+    """Tải HTML từ URL, có retry 3 lần nếu lỗi mạng hoặc 403"""
     for attempt in range(1, retries + 1):
         try:
             resp = requests.get(url, headers=HEADERS, timeout=15)
@@ -56,26 +56,32 @@ def fetch_html(url: str, retries: int = 3, delay: int = 3) -> str:
             else:
                 raise
 
+# =============================================================
+# HÀM CRAWL BẰNG REQUESTS + BEAUTIFULSOUP
+# =============================================================
 def crawl_url(url: str):
-    """Tải dữ liệu từ 1 URL bằng requests (fallback)"""
+    """Tải nội dung trang web bằng requests + BeautifulSoup"""
     try:
         html = fetch_html(url)
         soup = BeautifulSoup(html, "html.parser")
-
+        # Loại bỏ các thành phần không cần thiết như script, footer, nav,...
         for tag in soup(["script", "style", "nav", "footer", "header", "aside", "form"]):
             tag.decompose()
-
+        # Lấy toàn bộ text sạch
         text = soup.get_text(separator=" ", strip=True)
         return [Document(page_content=text, metadata={"url": url})]
     except Exception as e:
-        logging.error(f"❌ Lỗi khi crawl {url}: {e}")
+        logging.error(f"Lỗi khi crawl {url}: {e}")
         return []
 
+# =============================================================
+# HÀM CRAWL BẰNG SELENIUM (CHO NHỮNG TRANG DÙNG JS NHIỀU)
+# =============================================================
 def crawl_url_selenium(url: str):
     """Tải dữ liệu bằng Selenium (giả lập browser thật)"""
     try:
         options = Options()
-        options.add_argument("--headless=new")
+        options.add_argument("--headless=new")  # Chạy ẩn, không mở cửa sổ trình duyệt
         options.add_argument(f"user-agent={HEADERS['User-Agent']}")
         options.add_argument("--disable-blink-features=AutomationControlled")
 
@@ -83,7 +89,7 @@ def crawl_url_selenium(url: str):
         driver.get(url)
         html = driver.page_source
         driver.quit()
-
+        # Parse HTML với BeautifulSoup
         soup = BeautifulSoup(html, "html.parser")
         for tag in soup(["script", "style", "nav", "footer", "header", "aside", "form"]):
             tag.decompose()
@@ -91,29 +97,38 @@ def crawl_url_selenium(url: str):
         text = soup.get_text(separator=" ", strip=True)
         return [Document(page_content=text, metadata={"url": url})]
     except Exception as e:
-        logging.error(f"❌ Selenium cũng thất bại khi crawl {url}: {e}")
+        logging.error(f"Selenium cũng thất bại khi crawl {url}: {e}")
         return []
 
+# =============================================================
+#HÀM CRAWL AN TOÀN (DÙNG THỬ NHIỀU CÁCH)
+# =============================================================
 def safe_load_url(url: str):
-    """Thử WebBaseLoader → requests+BS4 → Selenium"""
+    """
+    Tải dữ liệu an toàn:
+    - Thử WebBaseLoader của LangChain trước
+    - Nếu fail, dùng requests + BeautifulSoup
+    - Nếu vẫn fail, fallback sang Selenium
+    """
     try:
         loader = WebBaseLoader(url)
         docs = loader.load()
-        logging.info(f"✅ WebBaseLoader loaded {len(docs)} docs from {url}")
+        logging.info(f"WebBaseLoader loaded {len(docs)} docs from {url}")
         return docs
     except Exception as e:
-        logging.warning(f"⚠️ WebBaseLoader failed for {url}: {e} → thử requests+BS4")
+        logging.warning(f"WebBaseLoader failed for {url}: {e} → thử requests+BS4")
         docs = crawl_url(url)
         if docs:
             return docs
-        logging.warning(f"⚠️ requests+BS4 cũng fail → thử Selenium")
+        logging.warning(f"requests+BS4 cũng fail → thử Selenium")
         return crawl_url_selenium(url)
-    
-# ================== END BỔ SUNG ==================
 
 # Cấu hình logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
+# =============================================================
+# LỚP CHÍNH: UXOCrawler — Thu thập dữ liệu từ nhiều nguồn UXO
+# =============================================================
 class UXOCrawler:
     def __init__(self):
         self.sources = {
@@ -131,14 +146,14 @@ class UXOCrawler:
             "cp": "https://baochinhphu.vn/mag-ho-tro-viet-nam-ra-pha-bom-min-102141010.htm",
             "mag_international": "https://maginternational.org/",
         }
-
+    # HÀM LẤY TOÀN BỘ LINK CON TRONG 1 TRANG CHÍNH
     def get_all_links(self, base_url: str, limit: int = 20) -> List[str]:
         """Lấy toàn bộ link con trong cùng domain (giới hạn limit để tránh quá tải)."""
         try:
             resp = requests.get(base_url, headers=HEADERS, timeout=10)
             resp.raise_for_status()
         except Exception as e:
-            logging.error(f"❌ Error fetching {base_url}: {e}")
+            logging.error(f"Error fetching {base_url}: {e}")
             return []
 
         soup = BeautifulSoup(resp.text, "html.parser")
@@ -148,6 +163,7 @@ class UXOCrawler:
         for a in soup.find_all("a", href=True):
             href = a["href"]
             full_url = urljoin(base_url, href)
+            # Chỉ lấy link trong cùng domain
             if urlparse(full_url).netloc == base_domain:
                 links.add(full_url)
 
@@ -156,7 +172,9 @@ class UXOCrawler:
             links = links[:limit]
         logging.info(f"🔗 Found {len(links)} links in {base_url}")
         return links
-
+    # =============================================================
+    # HÀM CHÍNH: CRAWL TOÀN BỘ DOMAIN
+    # =============================================================
     def crawl_domain(self, source_name: str, base_url: str, limit: int = 20) -> List[Document]:
         """Crawl toàn bộ link con trong 1 domain"""
         docs = []
@@ -166,13 +184,14 @@ class UXOCrawler:
 
         for url in urls:
             try:
-                loaded = safe_load_url(url)  # 🔹 Dùng safe_load_url thay vì crawl_url trực tiếp
+                loaded = safe_load_url(url)  # Dùng safe_load_url thay vì crawl_url trực tiếp
                 for d in loaded:
+                    # Gắn thêm metadata phục vụ RAG
                     d.metadata["source"] = source_name
                     d.metadata["url"] = url
                     d.metadata["length"] = len(d.page_content.split())
                 docs.extend(loaded)
-                logging.info(f"✅ Crawled {len(loaded)} docs from {url}")
+                logging.info(f"Crawled {len(loaded)} docs from {url}")
             except Exception as e:
-                logging.warning(f"⚠️ Skipped {url}: {e}")
+                logging.warning(f"Skipped {url}: {e}")
         return docs
