@@ -1,0 +1,546 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 450px;
+  min-width: 450px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-section {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.sidebar-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #555;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Chat Styles */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+.chat-header {
+  background: white;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ===== Chat Interface Layout ===== */
+.chat-interface {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;              /* Hoặc 100vh nếu muốn full màn hình */
+  background-color: #f8f8f8;
+  border-radius: 8px;
+}
+
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Tùy chỉnh thanh cuộn (Chrome, Edge, Safari) */
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 4px;
+}
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+}
+
+.message-user {
+  align-self: flex-end;
+  background: #007bff;
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.message-assistant {
+  align-self: flex-start;
+  background: #f1f1f1;
+  color: #333;
+  border-bottom-left-radius: 5px;
+}
+
+.chat-input-area {
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-input-container {
+  display: flex;
+  margin-top: 8px;
+}
+
+.message-input-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-right: 8px;
+  outline: none;
+}
+
+.message-input-container input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+.message-input-container button {
+  padding: 0.75rem 1.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.message-input-container button:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.message-input-container button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-send {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-send:hover {
+  background-color: #0056b3;
+}
+
+.btn-send:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Upload Area Styles */
+.upload-area {
+  display: block;              /* quan trọng nhất */
+  width: 100%;                 /* chiếm hết chiều rộng vùng chứa */
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;      /* tránh tràn do padding */
+}
+
+.upload-area:hover {
+  border-color: #666;
+  background-color: #f0f0f0;
+}
+
+.upload-text {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.upload-area.dragover {
+  border-color: #007bff;
+  background-color: #e3f2fd;
+}
+
+/* Image Preview */
+.image-preview {
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+/* Detection Results */
+.detection-results {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.detection-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ffeaa7;
+}
+
+.detection-item:last-child {
+  border-bottom: none;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #545b62;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+.btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #218838;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Map Styles */
+.map-container {
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.sidebar-map {
+  height: 200px;
+}
+
+/* Admin Styles */
+.admin-panel {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.login-form {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    min-width: auto;
+    max-height: 40vh;
+    overflow-x: hidden;
+  }
+  
+  .message-bubble {
+    max-width: 85%;
+  }
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Alert Styles */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.alert-warning {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  color: #856404;
+}
+
+.alert-success {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.alert-error {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.alert-info {
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+  color: #0c5460;
+}
+
+/* Router Link Styles */
+.router-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.router-link:hover {
+  text-decoration: none;
+}
+
+/* Navigation Styles */
+.nav-tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.nav-tab {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-tab.active {
+  border-bottom-color: #007bff;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.nav-tab:hover:not(.active) {
+  background-color: #f8f9fa;
+}
+
+/* Page Layout */
+.page-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.page-content {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.upload-area {
+  position: relative;
+  z-index: 2;
+}
+
+.sidebar {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   Chat Image Messages — hiển thị ảnh trong tin nhắn
+   ===================================================== */
+
+.message-image {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 10px;
+  display: block;
+  margin-top: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.message-image:hover {
+  transform: scale(1.05);
+}
+
+/* Thời gian gửi tin nhắn nhỏ gọn */
+.timestamp {
+  font-size: 0.75rem;
+  color: #888;
+  text-align: right;
+  margin-top: 4px;
+}
+
+/* Responsive cho ảnh trong chat */
+@media (max-width: 768px) {
+  .message-image {
+    max-width: 120px;
+    max-height: 120px;
+  }
+}
+
+.upload-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: 0 8px;
+  user-select: none;
+}
+
+.message-image {
+  max-width: 250px;
+  border-radius: 8px;
+  margin-top: 5px;
+  object-fit: cover;
+}
+
+/* Disabled Button Style */
+.btn-disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  opacity: 0.7;
+}

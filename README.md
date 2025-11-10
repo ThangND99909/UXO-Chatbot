@@ -181,6 +181,14 @@ uvicorn app.main:app --reload
 ```bash
 cd frontend
 streamlit run app.py
+
+cd frontend-react
+#dependencies
+# Thêm Node.js vào PATH
+$env:Path = "C:\Program Files\nodejs;" + $env:Path
+npm install
+
+npm start
 ```
 
 ---
